@@ -1,0 +1,7 @@
+%text-small {
+  @include text($normal-font-weight, $smaller-size, $small-size, $regular-font-family)
+}
+
+%text-medium {
+  @include text($normal-font-weight, $small-size, $normal-size, $medium-font-family)
+}

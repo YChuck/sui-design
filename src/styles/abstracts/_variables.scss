@@ -1,0 +1,49 @@
+
+$css-prefix                 :  'sui-';
+
+// Color
+$primary-color              : #4883FB;
+$info-color                 : #2db7f5;
+$success-color              : #2AD1B0;
+$warning-color              : #F49857;
+$error-color                : #F94545;
+$normal-color               : #e6ebf1;
+$cancel-color               : #C9C9C9;
+$disabled-color             : #D9D9D9;
+
+$white                      : #fff;
+$black                      : #000;
+$gray                       : #999;
+
+$link-color                 : rgb(70, 147, 230);
+$link-hover-color           : rgb(43, 133, 228);
+$link-active-color          : rgb(0, 123, 255);
+
+$default-font-color         : #4a4a4a;
+$light-font-color           : #7d7d7d;
+
+// Font
+$regular-font-family        : '.PingFangSC-Regular';
+$medium-font-family         : '.PingFangSC-Medium';
+
+$lighter-font-weight        : lighter;
+$normal-font-weight         : normal;
+$bold-font-weight           : bold;
+$bolder-font-weight         : bolder;
+
+$smaller-size               : 12px;
+$small-size                 : 14px;
+$normal-size                : 16px;
+$large-size                 : 18px;
+$larger-size                : 20px;
+
+// Base
+$font-family                : "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$code-family                : Consolas,Menlo,Courier,monospace;
+$cursor-disabled            : not-allowed;
+$line-height-base           : 1;
+
+// Animation
+$animation-time             : .3s;
+$animation-time-quick       : .15s;
+$transition-time            : .2s;
