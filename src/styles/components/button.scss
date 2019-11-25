@@ -1,0 +1,43 @@
+@import './mixins/button';
+
+$btn-prefix-cls: '#{$css-prefix}btn';
+
+.#{$btn-prefix-cls} {
+  @include btn;
+
+  &-default {
+    @include btn-default;
+  }
+
+  &-primary {
+  }
+
+  &-dashed {
+    @include btn-dashed;
+  }
+
+  &-text {
+  }
+
+  &-success {
+  }
+
+  &-info {
+  }
+
+  &-error {
+    @include btn-error;
+  }
+
+  &-wraning {
+  }
+
+  &-cancel {
+    @include btn-cancel;
+  }
+
+  &-check {
+    @include btn-check;
+  }
+
+}
