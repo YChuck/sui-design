@@ -32,10 +32,6 @@
   user-select: none;
   cursor: pointer;
 
-  > span {
-    margin-left: 5px;
-  }
-
   // 遮照层
   &:before {
     position: absolute;
@@ -92,6 +88,7 @@
     &.sui-btn-icon-only {
       min-width: 22px;
       padding: 0;
+      margin: 0;
     }
   }
 
@@ -112,6 +109,7 @@
     &.sui-btn-icon-only {
       min-width: 32px;
       padding: 0;
+      margin: 0;
     }
   }
 
@@ -132,11 +130,16 @@
     &.sui-btn-icon-only {
       min-width: 42px;
       padding: 0;
+      margin: 0;
     }
   }
 
   &-circle {
     border-radius: 32px;
+  }
+
+  .sui-icon {
+    margin-right: 5px;
   }
 
 }
