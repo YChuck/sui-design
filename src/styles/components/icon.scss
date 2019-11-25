@@ -1,0 +1,22 @@
+$icon-prefix-cls: "#{$css-prefix}icon";
+
+.#{$icon-prefix-cls} {
+  display: inline-block;
+  user-select: none;
+
+  &-small {
+    width: $icon-small-width;
+    height: $icon-small-height;
+  }
+
+  &-normal {
+    width: $icon-normal-width;
+    height: $icon-normal-height;
+  }
+
+  &-large {
+    width: $icon-large-width;
+    height: $icon-large-height;
+  }
+
+}

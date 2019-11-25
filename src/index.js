@@ -1,6 +1,8 @@
 import './styles'
 
-const components = []
+import SxIcon from './components/icon'
+
+const components = [SxIcon]
 
 function install(_Vue) {
   components.forEach(comp => {
@@ -15,4 +17,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   version: process.env.VERSION,
   install,
+  SxIcon,
 }
