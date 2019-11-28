@@ -88,7 +88,9 @@
     &.sui-btn-icon-only {
       min-width: 22px;
       padding: 0;
-      margin: 0;
+      .sui-icon {
+        margin-right: 0;
+      }
     }
   }
 
@@ -109,7 +111,9 @@
     &.sui-btn-icon-only {
       min-width: 32px;
       padding: 0;
-      margin: 0;
+      .sui-icon {
+        margin-right: 0;
+      }
     }
   }
 
@@ -130,7 +134,9 @@
     &.sui-btn-icon-only {
       min-width: 42px;
       padding: 0;
-      margin: 0;
+      .sui-icon {
+        margin-right: 0;
+      }
     }
   }
 
