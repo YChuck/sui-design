@@ -73,6 +73,14 @@ const buildConfig = env => {
           loader: 'vue-loader',
         },
         {
+          test: /\.css$/,
+          use: [
+            !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+            'css-loader',
+            'postcss-loader',
+          ],
+        },
+        {
           test: /\.scss$/,
           use: [
             !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
@@ -87,7 +95,7 @@ const buildConfig = env => {
             {
               loader: 'url-loader',
               options: {
-                limit: 2048,
+                // limit: 2048,
               },
             },
           ],
