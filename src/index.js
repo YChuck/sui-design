@@ -4,8 +4,9 @@ import SxIcon from './components/icon'
 import SxButton from './components/button'
 import SxNotice from './components/notice'
 import SxMessage from './components/message'
+import SxTab from './components/tab'
 
-const components = [SxIcon, SxButton]
+const components = [SxIcon, SxButton, SxTab]
 
 function install(_Vue) {
   components.forEach(comp => {
@@ -26,4 +27,5 @@ export default {
   SxButton,
   SxNotice,
   SxMessage,
+  SxTab,
 }
