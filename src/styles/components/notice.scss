@@ -1,0 +1,56 @@
+$notification-prefix-cls: "#{$css-prefix}notification";
+$notice-prefix-cls: "#{$css-prefix}notice";
+
+.#{$notice-prefix-cls} {
+  position: relative;
+  display: inline-flex;
+  // min-width: $notice-min-width;
+  background: $white;
+  border-radius: $notice-border-radius;
+  box-shadow: 2px 2px 12px 0 rgba(19,36,71,0.20);
+  padding: $notice-default-padding;
+  color: $default-font-color;
+  margin-bottom: 10px;
+
+  &-icon {
+    margin-right: $notice-icon-padding-right;
+  }
+
+  &-icon-message {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-title {
+    @extend %text-medium;
+  }
+
+  &-content {
+    @extend %text-small;
+    max-width: 300px;
+    word-break: break-all;
+    white-space: normal;
+    margin-top: $notice-content-padding-top;
+  }
+
+  &-close {
+    position: absolute;
+    cursor: pointer;
+    right: $notice-close-position;
+    top: $notice-close-position;
+  }
+
+}
+
+.#{$notification-prefix-cls} {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,47 @@
+.notice-move-enter-active {
+  animation: notice-move $animation-time;
+}
+
+.notice-move-leave-active {
+  animation: notice-move $animation-time reverse;
+}
+
+.message-move-enter-active {
+  animation: message-move $animation-time;
+}
+
+.message-move-leave-active {
+  animation: message-move $animation-time reverse;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+@keyframes notice-move {
+  0% {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0 0;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes message-move {
+  0% {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0 0;
+    transform: translateY(0%);
+  }
+}

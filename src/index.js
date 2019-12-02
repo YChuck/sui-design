@@ -2,6 +2,8 @@ import './styles'
 
 import SxIcon from './components/icon'
 import SxButton from './components/button'
+import SxNotice from './components/notice'
+import SxMessage from './components/message'
 
 const components = [SxIcon, SxButton]
 
@@ -9,6 +11,8 @@ function install(_Vue) {
   components.forEach(comp => {
     _Vue.component(comp.name, comp)
   })
+  _Vue.prototype.$SxNotice = SxNotice
+  _Vue.prototype.$SxMessage = SxMessage
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -20,4 +24,6 @@ export default {
   install,
   SxIcon,
   SxButton,
+  SxNotice,
+  SxMessage,
 }
