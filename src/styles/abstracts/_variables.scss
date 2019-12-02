@@ -22,6 +22,8 @@ $link-active-color          : rgb(0, 123, 255);
 $default-font-color         : #4a4a4a;
 $light-font-color           : #7d7d7d;
 
+$lighter-border-color       : #C7C7C7;
+
 // Font
 $regular-font-family        : '.PingFangSC-Regular';
 $medium-font-family         : '.PingFangSC-Medium';
@@ -100,7 +102,7 @@ $table-border-color        : #E0E6EF;
 // DatePicker
 $date-picker-border-radius          : 1px;
 $date-picker-height                 : 30px;
-$date-picker-form-height            : 36px;
+$date-picker-form-height            : 32px;
 $date-picker-fragment-padding       : 9px;
 $date-picker-form-padding           : 19px;
 $date-picker-font-weight            : $normal-font-weight;
