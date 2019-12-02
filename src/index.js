@@ -6,8 +6,9 @@ import SxNotice from './components/notice'
 import SxMessage from './components/message'
 import SxTab from './components/tab'
 import SxTable from './components/table'
+import SxDatePicker from './components/date-picker'
 
-const components = [SxIcon, SxButton, SxTab, SxTable]
+const components = [SxIcon, SxButton, SxTab, SxTable, SxDatePicker]
 
 function install(_Vue) {
   components.forEach(comp => {
@@ -30,4 +31,5 @@ export default {
   SxMessage,
   SxTab,
   SxTable,
+  SxDatePicker,
 }

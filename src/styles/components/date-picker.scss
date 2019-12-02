@@ -1,0 +1,98 @@
+$date-picker-prefix-cls: '#{$css-prefix}date-picker';
+$btn-date-picker-prefix-cls: '#{$css-prefix}btn-date-picker';
+
+.#{$date-picker-prefix-cls} {
+  display: inline-block;
+  .ivu-input {
+    border-color: $date-picker-border-color ;
+    border-radius: $date-picker-border-radius;
+    text-align: left;
+    height: $date-picker-height;
+    @include text($date-picker-font-weight, $date-picker-font-size, 1, $regular-font-family);
+    &-suffix > i {
+      font-size: 18px;
+      line-height: $date-picker-height;
+    }
+  }
+  &-global {
+    .ivu-input {
+      text-align: center;
+      color: $primary-color;
+      &-suffix {
+        background-color: $primary-color;
+        i {
+          color: $white;
+        }
+      }
+    }
+  }
+  &-fragment {
+    .ivu-input {
+      padding-left: $date-picker-fragment-padding;
+      background-color: $date-picker-fragment-bg-color;
+      &-suffix {
+        &::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          width: 1px;
+          height: 85%;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          background-color: $date-picker-border-color ;
+        }
+        i {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  &-form {
+    .ivu-input {
+      padding-left: $date-picker-form-padding;
+      height: $date-picker-form-height;
+      &-suffix {
+        &::before {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          width: 1px;
+          height: 85%;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          background-color: $date-picker-border-color ;
+        }
+        i {
+          color: $primary-color;
+          line-height: $date-picker-form-height;
+        }
+      }
+    }
+  }
+}
+
+.#{$btn-date-picker-prefix-cls} {
+  display: inline-flex;
+  &-info {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 20px;
+    @extend %text-small;
+    color: $light-font-color;
+  }
+  &-menu {
+    position: relative;
+  }
+  &-list {
+    display: inline-block;
+  }
+  &-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+  }
+}
