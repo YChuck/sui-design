@@ -1,0 +1,44 @@
+$table-prefix-cls: "#{$css-prefix}table";
+
+.#{$table-prefix-cls} {
+  .ivu-table-wrapper {
+    border: none !important;
+    .ivu-table {
+      th, td {
+        height: $table-row-height;
+        background-color: $white;
+        border-color: $table-border-color;
+      }
+      &:before, &:after {
+        width: 0px;
+      }
+      &-row:last-child {
+        td {
+          border: none;
+        }
+      }
+      &-header {
+        @include text($table-font-weight, $table-font-size, $line-height-base, $medium-font-family);
+        color: $default-font-color;
+      }
+      &-tbody {
+        @include text($table-font-weight, $table-font-size, $line-height-base, $regular-font-family);
+        color: $default-font-color;
+      }
+    }
+  }
+  &-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    height: $table-row-height;
+    line-height: $table-row-height;
+    @include text($table-font-weight, $table-font-size, $line-height-base, $medium-font-family);
+    color: $primary-color;
+    span {
+      margin-right: 2px;
+    }
+  }
+}
