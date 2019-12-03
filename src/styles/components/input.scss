@@ -1,0 +1,39 @@
+$input-prefix-cls: '#{$css-prefix}input';
+
+@mixin input-size($height, $border-radius) {
+  height: $height;
+  line-height: $height;
+  border-radius: $border-radius;
+}
+
+@mixin input-color($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border !important;
+}
+
+.#{$input-prefix-cls} {
+  input {
+    font-family: $regular-font-family;
+    font-size: $smaller-size;
+  }
+  &-global {
+    input {
+      @include input-color($light-font-color, transparent, $input-global-border-color);
+      @include input-size($input-height, $input-global-border-radius);
+    }
+  }
+  &-fragment {
+    input {
+      @include input-color($light-font-color, $input-fragment-bg-color, $input-fragment-border-color);
+      @include input-size($input-height, $input-border-radius);
+    }
+  }
+  &-form {
+    input {
+      @include input-color($light-font-color, transparent, $lighter-border-color);
+      @include input-size($input-form-height, $input-border-radius);
+    }
+  }
+
+}
