@@ -11,6 +11,7 @@ const merge = require('webpack-merge')
 const path = require('path')
 
 const resolve = dir => path.join(__dirname, '..', dir)
+const { checkPort } = require('./utils/check')
 
 const dev = require('./dev')
 const prod = require('./prod')
@@ -36,7 +37,6 @@ const buildConfig = env => {
     devServer: {
       contentBase: resolve('dist'),
       open: true,
-      port: 9090,
       hot: true,
       hotOnly: true,
       // use h5 history and run index.html when 404
@@ -140,7 +140,11 @@ const buildConfig = env => {
     base.plugins.push(new BundleAnalyzerPlugin())
   }
   if (isProd) return merge(base, prod)
-  else return merge(base, dev)
+  else
+    return checkPort(9090).then(port => {
+      base.devServer.port = port
+      return merge(base, dev)
+    })
 }
 
 module.exports = env => buildConfig(env)
