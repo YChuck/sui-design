@@ -1,0 +1,104 @@
+$select-prefix-cls: '#{$css-prefix}select';
+
+@mixin select-size($height, $border-radius, $span-height) {
+  height: $height;
+  border-radius: $border-radius;
+  span {
+    height: $span-height !important;
+    line-height: $span-height !important;
+    padding-right: $span-height !important;
+  }
+}
+
+@mixin select-color($color, $background, $border) {
+  span {
+    color: $color !important;
+  }
+  background-color: $background;
+  border-color: $border !important;
+}
+
+.#{$select-prefix-cls} {
+  display: inline-block;
+  position: relative;
+
+  &-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    z-index: 98;
+  }
+
+  .ivu-select-arrow,  .ivu-select-arrow:hover {
+    z-index: 99;
+    opacity: 0;
+  }
+  .ivu-select-selection span {
+    font-family: $regular-font-family;
+    font-size: $smaller-size !important;
+  }
+  &-global {
+    .ivu-select-selection {
+      @include select-color($light-font-color, transparent, $select-global-border-color);
+      @include select-size($select-height, $select-global-border-radius, $select-span-height);
+    }
+    .#{$select-prefix-cls}-icon {
+      width: $select-span-width;
+      background-color: $primary-color;
+      .sui-icon {
+        fill: $white;
+      }
+    }
+  }
+  &-fragment {
+    .ivu-select-selection {
+      @include select-color($light-font-color, $select-fragment-bg-color, $select-fragment-border-color);
+      @include select-size($select-height, $select-border-radius, $select-span-height);
+    }
+    .#{$select-prefix-cls}-icon {
+      width: $select-span-width;
+      .sui-icon {
+        fill: $primary-color;
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 1px;
+        height: 85%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: $select-fragment-border-color;
+      }
+    }
+  }
+  &-form {
+    .ivu-select-selection {
+      @include select-color($light-font-color, transparent, $lighter-border-color);
+      @include select-size($select-form-height, $select-border-radius, $select-form-span-height);
+    }
+    .#{$select-prefix-cls}-icon {
+      width: $select-width;
+      .sui-icon {
+        fill: $primary-color;
+      }
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 1px;
+        height: 85%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: $lighter-border-color;
+      }
+    }
+  }
+
+}
