@@ -1,0 +1,25 @@
+$header-prefix-cls: '#{$css-prefix}header';
+
+.#{$header-prefix-cls} {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+  padding: 0 $header-padding;
+  &-title {
+    @include text($bolder-font-weight, inherit, $line-height-base, $medium-font-family);
+    color: $default-font-color;
+  }
+  &-primary {
+    font-size: $header-title-primary-size;
+  }
+    font-size: $header-title-primary-size;
+  &-secondary {
+    font-size: $header-title-secondary-size;
+    padding-left: $header-padding;
+    border-left: 4px solid $primary-color;
+  }
+  &-small {
+    font-size: $header-title-small-size;
+  }
+}
