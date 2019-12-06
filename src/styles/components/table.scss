@@ -17,6 +17,9 @@ $table-prefix-cls: "#{$css-prefix}table";
           border: none;
         }
       }
+      &-row-hover td {
+        background-color: $table-row-hover-bg-color;
+      }
       &-header {
         @include text($table-font-weight, $table-font-size, $line-height-base, $medium-font-family);
         color: $default-font-color;
