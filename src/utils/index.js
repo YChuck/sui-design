@@ -1,4 +1,4 @@
-import { oneOf } from './assist'
+import { oneOf, isEmpty } from './assist'
 import { addScript, shallowCopy } from './tools'
 import {
   type,
@@ -19,6 +19,7 @@ export {
   isNumber,
   isBoolean,
   oneOf,
+  isEmpty,
   addScript,
   shallowCopy,
 }
