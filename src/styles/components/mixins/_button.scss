@@ -184,7 +184,7 @@
   @include button-color($white, $error-color, transparent);
   @include btn-icon-color($white);
   border-width: 1px;
-  border-style: dashed;
+  border-style: solid;
   transition: box-shadow $transition-time;
   &:hover {
     @include btn-icon-color($white);
