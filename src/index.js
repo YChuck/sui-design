@@ -10,6 +10,7 @@ import SxDatePicker from './components/date-picker'
 import SxInput from './components/input'
 import SxSelect from './components/select'
 import SxHeader from './components/header'
+import SxPage from './components/page'
 
 const components = [
   SxIcon,
@@ -20,6 +21,7 @@ const components = [
   SxInput,
   SxSelect,
   SxHeader,
+  SxPage,
 ]
 
 function install(_Vue) {
@@ -47,4 +49,5 @@ export default {
   SxInput,
   SxSelect,
   SxHeader,
+  SxPage,
 }
