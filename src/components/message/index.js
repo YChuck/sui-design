@@ -42,6 +42,7 @@ export default {
       onClose,
       transitionName,
       block: block || config.block,
+      type: 'message',
     })
   },
   success(option) {
