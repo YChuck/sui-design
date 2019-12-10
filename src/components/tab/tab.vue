@@ -36,7 +36,7 @@ export default {
   },
   mounted() {
     // 初始化选中项
-    if (this.value) this.selectedId = this.value
+    if (this.value || this.value === 0) this.selectedId = this.value
   },
   methods: {
     click($event, { label, value }) {
