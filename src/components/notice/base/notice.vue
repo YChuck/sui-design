@@ -10,7 +10,7 @@
       ></icon>
       <div class="sui-notice-main">
         <div class="sui-notice-title" v-if="title">{{ title }}</div>
-        <div class="sui-notice-content" v-if="content">
+        <div :class="contentClasses" v-if="content">
           <div v-if="!isRender" v-html="content"></div>
           <render-cell v-else :render="content"></render-cell>
         </div>
@@ -85,6 +85,12 @@ export default {
     },
     iconColor() {
       return this.icon.color || ''
+    },
+    contentClasses() {
+      return {
+        'sui-notice-content': true,
+        'sui-notice-content-only': !this.title,
+      }
     },
   },
   methods: {

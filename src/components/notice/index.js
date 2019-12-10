@@ -1,5 +1,6 @@
 import Notification from './base'
 import { PRIMARY_COLOR, ERROR_COLOR } from '../../constants'
+import { isBoolean } from '../../utils'
 
 let defaultStyls = {
   top: '24px',
@@ -24,7 +25,7 @@ export default {
     icon = '',
     onClose = () => {},
     transitionName = 'notice-move',
-    block = false,
+    block,
   }) {
     if (!this.instance)
       this.instance = Notification.newInstance({
@@ -40,7 +41,7 @@ export default {
       icon,
       onClose,
       transitionName,
-      block: block || config.block,
+      block: isBoolean(block) ? block : config.block,
       type: 'notice',
     })
   },
