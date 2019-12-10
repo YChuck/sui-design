@@ -17,6 +17,7 @@
 
 <script>
 import Notice from './notice'
+import { isNumber } from '../../../utils'
 
 const prefixCLs = 'sui-notification'
 
@@ -56,13 +57,19 @@ export default {
      * 单独某个 notice 配置 block 参数则这个 notice 会受到限制
      */
     add(notice) {
+      if (!isNumber(notice.duration)) notice.duration = 1.5
       notice.name = notice.name || getUuid()
-      notice.duration = notice.duration || 1.5
-
-      // 阻塞判断：存在 notice 时阻塞之，有且仅有一个存在
+      /**
+       * 阻塞判断：
+       * 1. 存在 notice 时阻塞之，有且仅有一个存在
+       * 2. duration = 0 (不自动销毁),并存在阻塞状态,则有且仅有一个存在
+       */
       if (notice.block) {
         let nowStamp = Date.now()
-        if (blockTime && nowStamp - blockTime < notice.duration * 1000) return
+        if (blockTime) {
+          if (notice.duration === 0) return
+          if (nowStamp - blockTime < notice.duration * 1000) return
+        }
         blockTime = nowStamp
       }
 
