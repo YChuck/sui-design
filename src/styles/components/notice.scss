@@ -41,6 +41,9 @@ $notice-prefix-cls: "#{$css-prefix}notice";
     word-break: break-all;
     white-space: normal;
     margin-top: $notice-content-padding-top;
+    &-only {
+      margin-top: 0;
+    }
   }
 
   &-close {
