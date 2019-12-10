@@ -1,5 +1,5 @@
 <template>
-  <div class="sui-notification" :style="styles">
+  <div :class="['sui-notification', classes]" :style="styles">
     <notice
       v-for="notice in notices"
       :key="notice.name"
@@ -37,6 +37,12 @@ export default {
   },
   props: {
     styles: {
+      type: [Object, String],
+      default() {
+        return {}
+      },
+    },
+    classes: {
       type: [Object, String],
       default() {
         return {}
