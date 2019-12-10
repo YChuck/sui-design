@@ -81,7 +81,7 @@ export default {
     },
     iconSize() {
       // 默认: notice's iconSize = normal; message's  iconSize = small
-      return this.icon.size || this.type === 'notice' ? 'normal' : 'small'
+      return this.icon.size || (this.type === 'notice' ? 'normal' : 'small')
     },
     iconColor() {
       return this.icon.color || ''
