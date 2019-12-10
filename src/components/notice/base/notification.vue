@@ -11,6 +11,7 @@
       :icon="notice.icon"
       :on-close="notice.onClose"
       :transition-name="notice.transitionName"
+      :type="notice.type"
     ></notice>
   </div>
 </template>

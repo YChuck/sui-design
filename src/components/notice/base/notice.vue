@@ -65,6 +65,11 @@ export default {
       type: Function,
     },
     transitionName: String,
+    // 类型: notice message
+    type: {
+      type: String,
+      require: true,
+    },
   },
   computed: {
     isRender() {
@@ -75,7 +80,8 @@ export default {
       return isString(icon) ? icon : icon.type || ''
     },
     iconSize() {
-      return this.icon.size || 'small'
+      // 默认: notice's iconSize = normal; message's  iconSize = small
+      return this.icon.size || this.type === 'notice' ? 'normal' : 'small'
     },
     iconColor() {
       return this.icon.color || ''
