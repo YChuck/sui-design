@@ -4,7 +4,6 @@ import { PRIMARY_COLOR, ERROR_COLOR } from '../../constants'
 let defaultStyls = {
   top: '24px',
   right: '24px',
-  width: '300px',
 }
 
 let config = {
@@ -30,6 +29,7 @@ export default {
     if (!this.instance)
       this.instance = Notification.newInstance({
         styles: config.customStyls || defaultStyls,
+        classes: 'sui-notification-notice',
       })
     this.instance.notice({
       name,

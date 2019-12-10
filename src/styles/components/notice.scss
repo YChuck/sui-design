@@ -4,7 +4,7 @@ $notice-prefix-cls: "#{$css-prefix}notice";
 .#{$notice-prefix-cls} {
   position: relative;
   display: inline-flex;
-  // min-width: $notice-min-width;
+  width: max-content;
   background: $white;
   border-radius: $notice-border-radius;
   box-shadow: 2px 2px 12px 0 rgba(19,36,71,0.20);
@@ -30,14 +30,14 @@ $notice-prefix-cls: "#{$css-prefix}notice";
 
   &-title {
     @extend %text-medium;
-    max-width: 300px;
+    max-width: 260px;
     word-break: break-all;
     white-space: normal;
   }
 
   &-content {
     @extend %text-small;
-    max-width: 300px;
+    max-width: 260px;
     word-break: break-all;
     white-space: normal;
     margin-top: $notice-content-padding-top;
@@ -56,4 +56,10 @@ $notice-prefix-cls: "#{$css-prefix}notice";
   position: fixed;
   display: flex;
   flex-direction: column;
+  &-notice {
+    align-items: flex-end;
+  }
+  &-message {
+    align-items: center;
+  }
 }

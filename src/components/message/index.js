@@ -30,6 +30,7 @@ export default {
     if (!this.instance)
       this.instance = Notification.newInstance({
         styles: config.customStyls || defaultStyls,
+        classes: 'sui-notification-message',
       })
     this.instance.notice({
       name,
