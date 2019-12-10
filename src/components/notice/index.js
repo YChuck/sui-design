@@ -4,6 +4,7 @@ import { PRIMARY_COLOR, ERROR_COLOR } from '../../constants'
 let defaultStyls = {
   top: '24px',
   right: '24px',
+  width: '300px',
 }
 
 let config = {
