@@ -64,5 +64,12 @@ $notice-prefix-cls: "#{$css-prefix}notice";
   }
   &-message {
     align-items: center;
+    .sui-notice-close {
+      position: relative;
+      cursor: pointer;
+      top: 0;
+      right: $message-icon-right;
+      margin-left: $message-icon-margin-left;
+    }
   }
 }
