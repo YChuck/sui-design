@@ -12,7 +12,7 @@ import SxSelect from './components/select'
 import SxHeader from './components/header'
 import SxPage from './components/page'
 
-const components = [
+export const components = [
   SxIcon,
   SxButton,
   SxTab,
