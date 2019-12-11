@@ -24,7 +24,7 @@ export default {
   },
   render(h, ctx) {
     const { level } = ctx.props
-    const { staticStyle = {} } = ctx.data
+    const { staticStyle = {}, staticClass = {} } = ctx.data
     /**
      * 经测试使用 v-model 后,覆盖input方法会使 Vue 处理多个事件 (保留原事件处理函数)
      * input事件处理函数将通过数组保存, Vue 的 事件处理 invoker 支持数组处理
@@ -35,12 +35,12 @@ export default {
     }
     return h(
       'div',
-      { class: [prefixCls, `${prefixCls}-${level}`], staticStyle },
+      { class: [prefixCls, `${prefixCls}-${level}`], staticStyle, staticClass },
       [
         h(
           Select,
           {
-            ...shallowCopy(ctx.data, ['staticStyle']),
+            ...shallowCopy(ctx.data, ['staticStyle', 'staticClass']),
             props: { clearable: true },
           },
           ctx.children,
