@@ -19,7 +19,6 @@ $select-prefix-cls: '#{$css-prefix}select';
 }
 
 .#{$select-prefix-cls} {
-  display: inline-block;
   position: relative;
 
   &-icon {
