@@ -20,6 +20,7 @@ $select-prefix-cls: '#{$css-prefix}select';
 
 .#{$select-prefix-cls} {
   position: relative;
+  display: inline-block;
 
   &-icon {
     display: inline-flex;
