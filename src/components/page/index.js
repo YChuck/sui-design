@@ -1,5 +1,6 @@
 import { Page } from 'iview'
 import Button from '../button'
+import { isArray } from '../../utils'
 
 const prefixCls = 'sui-page'
 
@@ -12,6 +13,8 @@ export default {
     return {
       // input 输入值
       inputNumber: false,
+      // 具体页数
+      current: 1,
     }
   },
   props: {
@@ -23,16 +26,35 @@ export default {
       type: Number,
       default: 10,
     },
-    // 具体页数
-    value: {
-      type: Number,
-      default: 1,
+    // 仅供 v-model 实现使用
+    value: Number,
+  },
+  watch: {
+    value(value) {
+      this.current = value
     },
+  },
+  mounted() {
+    // 若存在 value 值设置给 iView page 作为默认选中
+    const { value } = this
+    if (value) this.current = value
   },
   render(h) {
     const onChange = this.$listeners['on-change']
     const input = this.$listeners['input']
-    const { total, pageSize, value, inputNumber } = this
+    const { total, pageSize, inputNumber, current } = this
+    /**
+     * 标志: 是否设置 v-model
+     * 经测试,通过判断 input 事件处理器中待被处理的监听函数的名称来判断是否设置 v-model
+     * 若设置 v-model name => callback
+     * 否则 name => bound input
+     * (若存在两个待被处理的监听函数说明一定设置了 v-model)
+     */
+    const isModel =
+      input &&
+      (isArray(input.fns)
+        ? input.fns.length === 2
+        : input.fns.name === 'callback')
 
     return h('div', { class: prefixCls }, [
       h(
@@ -41,12 +63,17 @@ export default {
           props: {
             total,
             pageSize,
-            current: value,
+            current,
             ...this.$attrs,
           },
           on: {
             ...this.$listeners,
+            /**
+             * 拦截 iView page change 事件
+             * 未设置 v-model 则只能手动修改 current 值来改变 iView page 选中项
+             */
             'on-change': page => {
+              if (!isModel) this.current = page
               if (input) input(page)
               if (onChange) onChange(page)
             },
@@ -78,13 +105,18 @@ export default {
           props: {
             size: 'small',
             type: 'default',
-            disabled: value === inputNumber || !inputNumber,
+            /**
+             * 若当前选中和输入一致 或 无输入值,则禁用按钮
+             */
+            disabled: current === inputNumber || !inputNumber,
           },
           on: {
             /**
              * 用于触发 v-model 变化、change 事件以及改变当前选中页码
+             * 未设置 v-model 则只能手动修改 current 值来改变 iView page 选中项
              */
             click: () => {
+              if (!isModel) this.current = inputNumber
               if (input) input(inputNumber)
               if (onChange) onChange(inputNumber)
             },
