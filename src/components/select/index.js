@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { Select } from 'iview'
 import Icon from '../icon'
-import { oneOf } from '../../utils'
+import { oneOf, shallowCopy } from '../../utils'
 
 const prefixCls = 'sui-select'
 
@@ -24,37 +24,43 @@ export default {
   },
   render(h, ctx) {
     const { level } = ctx.props
+    const { staticStyle = {} } = ctx.data
     /**
      * 经测试使用 v-model 后,覆盖input方法会使 Vue 处理多个事件 (保留原事件处理函数)
      * input事件处理函数将通过数组保存, Vue 的 事件处理 invoker 支持数组处理
      */
+    if (!ctx.data.on) ctx.data.on = {}
     ctx.data.on['input'] = function(v) {
       state.close = !!v
     }
-    return h('div', { class: [prefixCls, `${prefixCls}-${level}`] }, [
-      h(
-        Select,
-        {
-          ...ctx.data,
-          props: { clearable: true },
-        },
-        ctx.children,
-      ),
-      h('div', { class: `${prefixCls}-icon` }, [
-        h(Icon, {
-          props: {
-            type: state.close
-              ? 'icon-error-circle'
-              : level === 'fragment'
-              ? 'icon-arraw-vertical'
-              : 'icon-arrow-down',
+    return h(
+      'div',
+      { class: [prefixCls, `${prefixCls}-${level}`], staticStyle },
+      [
+        h(
+          Select,
+          {
+            ...shallowCopy(ctx.data, ['staticStyle']),
+            props: { clearable: true },
           },
-          style: {
-            width: level === 'fragment' && !state.close ? '16px' : '12px',
-            height: level === 'fragment' && !state.close ? '16px' : '12px',
-          },
-        }),
-      ]),
-    ])
+          ctx.children,
+        ),
+        h('div', { class: `${prefixCls}-icon` }, [
+          h(Icon, {
+            props: {
+              type: state.close
+                ? 'icon-error-circle'
+                : level === 'fragment'
+                ? 'icon-arraw-vertical'
+                : 'icon-arrow-down',
+            },
+            style: {
+              width: level === 'fragment' && !state.close ? '16px' : '12px',
+              height: level === 'fragment' && !state.close ? '16px' : '12px',
+            },
+          }),
+        ]),
+      ],
+    )
   },
 }

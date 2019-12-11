@@ -1,3 +1,4 @@
+import { isArray, isObject } from './type'
 /**
  * 动态添加 Script 脚本 (promise)
  * 过滤重复 url 并添加标记
