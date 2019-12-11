@@ -1,7 +1,7 @@
 import { DatePicker } from 'iview'
 import BtnPicker from './btn-picker'
 import moment from 'moment'
-import { oneOf } from '../../utils'
+import { oneOf, shallowCopy } from '../../utils'
 
 const prefixCls = 'sui-date-picker'
 
@@ -10,7 +10,14 @@ const prefixCls = 'sui-date-picker'
  */
 const el = {
   button(ctx) {
-    return [BtnPicker, { ...ctx.data, props: { ...ctx.props } }, ctx.children]
+    return [
+      BtnPicker,
+      {
+        ...shallowCopy(ctx.data, ['staticClass', 'staticStyle']),
+        props: { ...ctx.props },
+      },
+      ctx.children,
+    ]
   },
   picker(ctx) {
     const { 'on-change': onChange } = ctx.listeners
@@ -47,7 +54,7 @@ const el = {
       }
     }
     const data = {
-      ...ctx.data,
+      ...shallowCopy(ctx.data, ['staticClass', 'staticStyle']),
       props: { editable: false },
       class: `${prefixCls}-${ctx.props.level}`,
     }
@@ -76,6 +83,9 @@ export default {
   },
   render(h, ctx) {
     const { model } = ctx.props
-    return h('div', { class: prefixCls }, [h(...el[model](ctx))])
+    const { staticClass = {}, staticStyle = {} } = ctx.data
+    return h('div', { class: prefixCls, staticClass, staticStyle }, [
+      h(...el[model](ctx)),
+    ])
   },
 }

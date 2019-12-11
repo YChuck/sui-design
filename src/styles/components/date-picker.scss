@@ -3,15 +3,18 @@ $btn-date-picker-prefix-cls: '#{$css-prefix}btn-date-picker';
 
 .#{$date-picker-prefix-cls} {
   display: inline-block;
-  .ivu-input {
-    border-color: $date-picker-border-color ;
-    border-radius: $date-picker-border-radius;
-    text-align: left;
-    height: $date-picker-height;
-    @include text($date-picker-font-weight, $date-picker-font-size, 1, $regular-font-family);
-    &-suffix > i {
-      font-size: 18px;
-      line-height: $date-picker-height;
+  .ivu-date-picker {
+    display: block;
+    .ivu-input {
+      border-color: $date-picker-border-color ;
+      border-radius: $date-picker-border-radius;
+      text-align: left;
+      height: $date-picker-height;
+      @include text($date-picker-font-weight, $date-picker-font-size, 1, $regular-font-family);
+      &-suffix > i {
+        font-size: 18px;
+        line-height: $date-picker-height;
+      }
     }
   }
   &-global {
