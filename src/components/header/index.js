@@ -26,7 +26,8 @@ export default {
     return h(
       'header',
       {
-        class: prefixCls,
+        ...ctx.data,
+        class: [prefixCls, ctx.data.class],
       },
       [
         h(

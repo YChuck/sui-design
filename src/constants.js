@@ -30,6 +30,7 @@ const SMALL_SIZE = '14'
 const NORMAL_SIZE = '16'
 const LARGE_SIZE = '18'
 const LARGER_SIZE = '20'
+const WITHOUT_ATTRS = ['class', 'staticClass', 'style', 'staticStyle']
 
 const WITHOUT_ATTRS = ['class', 'staticClass', 'style', 'staticStyle']
 
