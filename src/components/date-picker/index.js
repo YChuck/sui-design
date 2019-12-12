@@ -2,6 +2,7 @@ import { DatePicker } from 'iview'
 import BtnPicker from './btn-picker'
 import moment from 'moment'
 import { oneOf, shallowCopy } from '../../utils'
+import { WITHOUT_ATTRS } from '../../constants'
 
 const prefixCls = 'sui-date-picker'
 
@@ -13,7 +14,7 @@ const el = {
     return [
       BtnPicker,
       {
-        ...shallowCopy(ctx.data, ['staticClass', 'staticStyle']),
+        ...shallowCopy(ctx.data, WITHOUT_ATTRS),
         props: { ...ctx.props },
       },
       ctx.children,
@@ -54,7 +55,7 @@ const el = {
       }
     }
     const data = {
-      ...shallowCopy(ctx.data, ['staticClass', 'staticStyle']),
+      ...shallowCopy(ctx.data, WITHOUT_ATTRS),
       props: { editable: false },
       class: `${prefixCls}-${ctx.props.level}`,
     }
@@ -83,9 +84,17 @@ export default {
   },
   render(h, ctx) {
     const { model } = ctx.props
-    const { staticClass = {}, staticStyle = {} } = ctx.data
-    return h('div', { class: prefixCls, staticClass, staticStyle }, [
-      h(...el[model](ctx)),
-    ])
+    const {
+      class: classes = '',
+      staticClass = '',
+      style = '',
+      staticStyle = '',
+    } = ctx.data
+
+    return h(
+      'div',
+      { class: [prefixCls, classes], staticClass, style, staticStyle },
+      [h(...el[model](ctx))],
+    )
   },
 }
