@@ -42,7 +42,8 @@ export default {
   computed: {
     limitSize() {
       const { more } = this
-      return isNumber(more) ? more : 2
+      // 默认最大可展示数: 15
+      return isNumber(more) ? more : 15
     },
     moreFlag() {
       const { more, limitSize, data } = this
