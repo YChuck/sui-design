@@ -1,0 +1,149 @@
+
+$css-prefix                         :  'sui-';
+
+// Color
+$primary-color                      : #4883FB;
+$info-color                         : #2db7f5;
+$success-color                      : #2AD1B0;
+$warning-color                      : #F49857;
+$error-color                        : #F94545;
+$normal-color                       : #e6ebf1;
+$cancel-color                       : #C9C9C9;
+$disabled-color                     : #D9D9D9;
+
+$white                              : #fff;
+$black                              : #000;
+$gray                               : #999;
+
+$link-color                         : rgb(70, 147, 230);
+$link-hover-color                   : rgb(43, 133, 228);
+$link-active-color                  : rgb(0, 123, 255);
+
+$default-font-color                 : #4a4a4a;
+$light-font-color                   : #7d7d7d;
+
+$lighter-border-color               : #C7C7C7;
+
+// Font
+$regular-font-family                : '.PingFangSC-Regular';
+$medium-font-family                 : '.PingFangSC-Medium';
+
+$lighter-font-weight                : lighter;
+$normal-font-weight                 : normal;
+$bold-font-weight                   : bold;
+$bolder-font-weight                 : bolder;
+
+$smaller-size                       : 12px;
+$small-size                         : 14px;
+$normal-size                        : 16px;
+$large-size                         : 18px;
+$larger-size                        : 20px;
+
+// Base
+$font-family                        : "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$code-family                        : Consolas,Menlo,Courier,monospace;
+$cursor-disabled                    : not-allowed;
+$line-height-base                   : 1;
+
+// Animation
+$animation-time                     : .3s;
+$animation-time-quick               : .15s;
+$transition-time                    : .2s;
+
+// Icon
+$icon-small-width                   : 16px;
+$icon-small-height                  : 16px;
+$icon-normal-width                  : 32px;
+$icon-normal-height                 : 32px;
+$icon-large-width                   : 64px;
+$icon-large-height                  : 64px;
+
+// Button
+$btn-font-weight                    : $normal-font-weight;
+$btn-border-radius                  : 2px;
+$btn-small-min-width                : 40px;
+$btn-small-height                   : 22px;
+$btn-small-font-size                : $smaller-size;
+$btn-normal-min-width               : 80px;
+$btn-normal-height                  : 32px;
+$btn-normal-font-size               : $smaller-size;
+$btn-large-min-width                : 120px;
+$btn-large-height                   : 42px;
+$btn-large-font-size                : $small-size;
+$btn-check-border-color             : #C9D4E9;
+$btn-small-icon-size                : 12px;
+$btn-normal-icon-size               : 16px;
+$btn-large-icon-size                : 20px;
+
+// Notice
+$notice-min-width                   : 134px;
+$notice-border-radius               : 4px;
+$notice-default-padding             : 12px 20px;
+$notice-icon-padding-right          : 15px;
+$notice-close-width                 : 16px;
+$notice-close-height                : 16px;
+$notice-close-position              : 3px;
+$notice-content-padding-top         : 5px;
+$message-icon-right                 : -10px;
+$message-icon-margin-left           : 5px;
+
+// Tab
+$tab-default-height                 : 29px;
+$tab-border-radius                  : 2px;
+$tab-item-min-width                 : 77px;
+$tab-item-padding                   : 8px 20px;
+$tab-border-color                   : #C9D4E9;
+
+//Table
+$table-row-height                   : 50px;
+$table-font-weight                  : $normal-font-weight;
+$table-font-size                    : $smaller-size;
+$table-border-color                 : #E0E6EF;
+$table-row-hover-bg-color           : #f3f9ff;
+
+// DatePicker
+$date-picker-border-radius          : 1px;
+$date-picker-height                 : 30px;
+$date-picker-form-height            : 32px;
+$date-picker-fragment-padding       : 9px;
+$date-picker-form-padding           : 19px;
+$date-picker-font-weight            : $normal-font-weight;
+$date-picker-font-size              :$smaller-size;
+$date-picker-border-color           : #C9D4E9;
+$date-picker-fragment-bg-color      : #F5F5F7;
+
+// Input
+$input-height                       : 30px;
+$input-border-radius                : 2px;
+$input-form-height                  : 32px;
+$input-global-border-radius         : 1px;
+$input-global-border-color          : #C9D4E9;
+$input-fragment-border-color        : #DDDDDD;
+$input-fragment-bg-color            : #F5F5F7;
+
+// Select
+$select-width                        : 30px;
+$select-span-width                   : 28px;
+$select-height                       : 30px;
+$select-span-height                  : 28px;
+$select-border-radius                : 2px;
+$select-form-height                  : 32px;
+$select-form-span-height             : 30px;
+$select-global-border-radius         : 1px;
+$select-global-border-color          : #C9D4E9;
+$select-fragment-border-color        : #DDDDDD;
+$select-fragment-bg-color            : #F5F5F7;
+
+// header
+$header-height                       : 79px;
+$header-padding                      : 10px;
+$header-title-primary-size           : $normal-size;
+$header-title-secondary-size         : $small-size;
+$header-title-small-size             : $smaller-size;
+
+// Page
+$page-width                          : 22px;
+$page-height                         : 22px;
+$page-item-margin                    : 5px;
+$page-border-color                   : #bbbbbb;
+$page-input-width                    : 30px;

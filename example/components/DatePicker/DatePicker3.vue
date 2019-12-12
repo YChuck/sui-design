@@ -1,0 +1,41 @@
+<template>
+  <div class="template-item">
+    <div class="template-item-left">
+      <div class="tempalte-instance">
+        <sx-date-picker
+          class="template-instance-item"
+          model="button"
+          level="global"
+          defaultSelect="month"
+        />
+      </div>
+      <div class="template-item-info">
+        <span class="template-info-title">默认选中</span>
+        <span class="template-info-content"
+          >按钮时间选择器使用 defaultSelect
+          来控制默认选中(date、week、month、one、seven、thirty).<br />显示框时间选择器使用
+          value 属性(<a href="http://v3.iviewui.com/components/date-picker"
+            >iView Datepicker</a
+          >)</span
+        >
+      </div>
+    </div>
+    <div class="template-item-right">
+      <code-section :content="json" json></code-section>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      json: `
+<sx-date-picker 
+    model="button" 
+    level="global" 
+    defaultSelect="month"></sx-date-picker>`,
+    }
+  },
+}
+</script>

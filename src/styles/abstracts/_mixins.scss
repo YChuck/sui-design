@@ -1,0 +1,22 @@
+// Text Overflow (Notice: Must Be Block/Inline Block/Flex-item Element!)
+@mixin text-overflow($w: 100%, $line: 1) {
+  width: $w;
+  // max-width: $w;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if $line==1 {
+    white-space: nowrap;
+  } @else if $line>1 {
+    // Not for IE & Firefox
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin text ($font-weight, $font-size, $line-height, $font-family) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font-family;
+}
