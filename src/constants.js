@@ -31,6 +31,8 @@ const NORMAL_SIZE = '16'
 const LARGE_SIZE = '18'
 const LARGER_SIZE = '20'
 
+const WITHOUT_ATTRS = ['class', 'staticClass', 'style', 'staticStyle']
+
 export {
   CLASS_PREFIX,
   PRIMARY_COLOR,
@@ -56,4 +58,5 @@ export {
   NORMAL_SIZE,
   LARGE_SIZE,
   LARGER_SIZE,
+  WITHOUT_ATTRS,
 }

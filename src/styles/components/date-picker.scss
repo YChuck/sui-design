@@ -55,7 +55,7 @@ $btn-date-picker-prefix-cls: '#{$css-prefix}btn-date-picker';
     .ivu-input {
       border-color: $lighter-border-color;
       padding-left: $date-picker-form-padding;
-      height: $date-picker-form-height;
+      height: $date-picker-form-height !important;
       &-suffix {
         &::before {
           content: '';
@@ -70,7 +70,7 @@ $btn-date-picker-prefix-cls: '#{$css-prefix}btn-date-picker';
         }
         i {
           color: $primary-color;
-          line-height: $date-picker-form-height;
+          line-height: $date-picker-form-height !important;
         }
       }
     }
