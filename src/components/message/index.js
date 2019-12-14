@@ -1,6 +1,6 @@
 import Notification from '../notice/base'
 import { PRIMARY_COLOR, ERROR_COLOR } from '../../constants'
-import { isBoolean } from '../../utils'
+import { isBoolean, isString } from '../../utils'
 
 let defaultStyls = {
   top: '24px',
@@ -47,6 +47,7 @@ export default {
     })
   },
   success(option) {
+    if (isString(option)) option = { content: option }
     return this.open(
       Object.assign(
         {
@@ -61,6 +62,7 @@ export default {
     )
   },
   error(option) {
+    if (isString(option)) option = { content: option }
     return this.open(
       Object.assign(
         {
