@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { Select } from 'iview'
 import Icon from '../icon'
-import { oneOf } from '../../utils'
+import { oneOf, isArray } from '../../utils'
 
 const prefixCls = 'sui-select'
 
@@ -24,7 +24,20 @@ export default {
     },
   },
   render(h) {
-    const { level } = this
+    let {
+      level,
+      $listeners: { input },
+    } = this
+
+    const inputFn = v => {
+      this.close = !!v
+    }
+
+    if (input) {
+      if (isArray(input.fns)) input.fns.push(inputFn)
+      else input.fns = [input.fns, inputFn]
+    } else input = inputFn
+
     return h('div', { class: [prefixCls, `${prefixCls}-${level}`] }, [
       h(
         Select,
@@ -32,13 +45,7 @@ export default {
           props: { clearable: true, ...this.$attrs },
           on: {
             ...this.$listeners,
-            /**
-             * 经测试使用 v-model 后,覆盖input方法会使 Vue 处理多个事件 (保留原事件处理函数)
-             * input事件处理函数将通过数组保存, Vue 的 事件处理 invoker 支持数组处理
-             */
-            input: v => {
-              this.close = !!v
-            },
+            input,
           },
           /**
            * 将封装组件的作用域插槽传入 iView Select 组件
