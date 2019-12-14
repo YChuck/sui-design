@@ -15,7 +15,8 @@
       <div class="template-item-info">
         <span class="template-info-title">消息类型</span>
         <span class="template-info-content"
-          >带有状态的消息(success、error)</span
+          >带有状态的消息(success、error):
+          可仅传递字符串(等于config.content)</span
         >
       </div>
     </div>
@@ -36,13 +37,9 @@ export default {
 
 open(flag) {
   if (flag) {
-    this.$SxMessage.success({
-      title: '我是成功消息',
-    })
+    this.$SxMessage.success('我是成功消息')
   } else {
-    this.$SxMessage.error({
-      title: '我是失败消息',
-    })
+    this.$SxMessage.error('我是失败消息')
   }
 },`,
     }
@@ -50,13 +47,9 @@ open(flag) {
   methods: {
     open(flag) {
       if (flag) {
-        this.$SxMessage.success({
-          title: '我是成功消息',
-        })
+        this.$SxMessage.success('我是成功消息')
       } else {
-        this.$SxMessage.error({
-          title: '我是失败消息',
-        })
+        this.$SxMessage.error('我是失败消息')
       }
     },
   },
