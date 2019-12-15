@@ -1,4 +1,7 @@
 export const types = [
+  'menu',
+  'sleep-member',
+  'check',
   'arrow-down',
   'passenger-flow-analysis',
   'area',
