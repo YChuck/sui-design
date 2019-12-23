@@ -24,8 +24,6 @@ const prefixCLs = 'sui-notification'
 
 const createTime = Date.now()
 
-// 记录上一个 notice
-let lastNotice = null
 let seed = 0
 
 function getUuid() {
@@ -53,6 +51,8 @@ export default {
   },
   data() {
     return {
+      // 记录上一个 notice
+      lastNotice: null,
       notices: [],
     }
   },
@@ -68,10 +68,12 @@ export default {
       if (!isNumber(notice.duration)) notice.duration = 1.5
       notice.name = notice.name || getUuid()
 
+      const { lastNotice } = this
+
       // 判断当前 notice 是否要被阻塞 (若已存在 notice 则结束当前流程)
       if (notice.block && lastNotice) return
       // 记录当前 notice
-      lastNotice = notice
+      this.lastNotice = notice
 
       let _notice = Object.assign(
         {
@@ -90,7 +92,8 @@ export default {
       })
       this.notices.splice(index, 1)
       // 若为记录的 notice 则清空记录
-      if (lastNotice && name === lastNotice.name) lastNotice = null
+      const { lastNotice } = this
+      if (lastNotice && name === lastNotice.name) this.lastNotice = null
     },
     closeAll(all) {
       this.notices = []
