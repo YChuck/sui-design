@@ -73,7 +73,7 @@ export default {
 .icon {
   &-view {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 100px);
+    grid-template-columns: repeat(auto-fit, 120px);
     grid-auto-rows: auto;
     grid-gap: 20px;
     margin-bottom: 20px;
@@ -83,7 +83,12 @@ export default {
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      padding: 5px 0;
       cursor: pointer;
+      &:hover {
+        border-radius: 5px;
+        box-shadow: 1px 1px 6px 0 rgba(145, 146, 149, 0.7);
+      }
       .view-item-desc {
         display: inline-block;
         margin-top: 5px;
