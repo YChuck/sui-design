@@ -8,12 +8,12 @@ let defaultStyls = {
 }
 
 let config = {
-  customStyls: null,
+  styles: null,
   block: false,
 }
 
 export default {
-  config({ styles, block }) {
+  config({ styles = null, block = false }) {
     config = { styles, block }
   },
   open({
@@ -29,7 +29,7 @@ export default {
   }) {
     if (!this.instance)
       this.instance = Notification.newInstance({
-        styles: config.customStyls || defaultStyls,
+        styles: config.styles || defaultStyls,
         classes: 'sui-notification-notice',
       })
     this.instance.notice({
