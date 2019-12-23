@@ -76,6 +76,10 @@ export default {
       ),
     )
   },
+  close(name) {
+    if (!name || !this.instance) return false
+    this.instance.remove(isString(name) ? name : name.toString())
+  },
   destroy() {
     if (!this.instance) return
     this.instance.destroy()
