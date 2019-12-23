@@ -1,6 +1,6 @@
 import Notification from './base'
 import { PRIMARY_COLOR, ERROR_COLOR } from '../../constants'
-import { isBoolean } from '../../utils'
+import { isBoolean, isString } from '../../utils'
 
 let defaultStyls = {
   top: '24px',
@@ -72,6 +72,10 @@ export default {
         option,
       ),
     )
+  },
+  close(name) {
+    if (!name || !this.instance) return false
+    this.instance.remove(isString(name) ? name : name.toString())
   },
   destroy() {
     if (!this.instance) return
