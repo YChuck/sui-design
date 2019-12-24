@@ -20,7 +20,7 @@ export default {
   props: {
     // 组件使用 v-model
     value: {
-      type: Number,
+      type: [Number, String],
     },
     list: {
       type: Array,

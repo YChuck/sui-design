@@ -1,4 +1,6 @@
 export const types = [
+  'data-statistics',
+  'device-information',
   'menu',
   'sleep-member',
   'check',

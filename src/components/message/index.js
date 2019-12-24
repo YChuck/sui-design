@@ -9,12 +9,12 @@ let defaultStyls = {
 }
 
 let config = {
-  customStyls: null,
+  styles: null,
   block: false,
 }
 
 export default {
-  config({ styles, block }) {
+  config({ styles = null, block = false }) {
     config = { styles, block }
   },
   open({
@@ -30,7 +30,7 @@ export default {
   }) {
     if (!this.instance)
       this.instance = Notification.newInstance({
-        styles: config.customStyls || defaultStyls,
+        styles: config.styles || defaultStyls,
         classes: 'sui-notification-message',
       })
     this.instance.notice({
@@ -75,6 +75,10 @@ export default {
         option,
       ),
     )
+  },
+  close(name) {
+    if (!name || !this.instance) return false
+    this.instance.remove(isString(name) ? name : name.toString())
   },
   destroy() {
     if (!this.instance) return
