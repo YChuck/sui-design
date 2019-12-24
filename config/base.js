@@ -134,6 +134,8 @@ const buildConfig = env => {
           removeComments: false,
         },
       }),
+      // moment 语言包默认仅加载 zh-cn
+      new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
     ],
   }
   if (env && env.report) {
