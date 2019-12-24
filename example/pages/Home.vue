@@ -1,25 +1,21 @@
 <template>
   <div class="home">
-    <h1>SX-DESIGN</h1>
-    <!-- <h1>快速上手</h1>
-    <hr />
+    <h1>SUI-DESIGN</h1>
+    <h3>快速上手</h3>
     <h4>1. NPM 安装</h4>
-    <pre><code class="language-javascript" lang="javascript">$ npm install sx-echarts --save
+    <pre><code class='language-shell' lang='shell'>$ npm install sui-design --save
 </code></pre>
-    <h4>2. 引入 SX-ECHARTS</h4>
-    <h5>全局引入</h5>
-    <p>
-      一般在 webpack 入口页面
-      <code>main.js</code> 中如下配置：
-    </p>
-    <pre><code class="language-javascript" lang="javascript">import Vue from &#39;vue&#39;
+    <h4>2. 引入 <strong>SUI-DESIGN</strong></h4>
+    <h5>全局引入:</h5>
+    <p>一般在 webpack 入口 <code>main.js</code> 中如下配置：</p>
+    <pre><code class='language-javascript' lang='javascript'>import Vue from &#39;vue&#39;
 import App from &#39;./App.vue&#39;
 // 添加样式
-import &#39;sx-echarts/lib/sxEcharts.css&#39;
-// 导入 sx-echarts
-import sxEcharts from &#39;sx-echarts&#39;
+import &#39;sui-design/lib/sui.css&#39;
+// 导入 sui-design
+import SUI from &#39;sui-design&#39;
 // 注册
-Vue.use(sxEcharts)
+Vue.use(SUI)
 
 Vue.config.productionTip = false
 
@@ -27,54 +23,47 @@ new Vue({
   render: h =&gt; h(App),
 }).$mount(&#39;#app&#39;)
 </code></pre>
-    <h5>按需引入</h5>
+    <h5>按需引入:</h5>
     <p>
       借助插件
-      <a href="https://github.com/ant-design/babel-plugin-import" target="black"
+      <a href="https://github.com/ant-design/babel-plugin-import"
         >babel-plugin-import</a
-      >可以实现按需加载组件，减少文件体积。首先安装，并在文件
-      <code>.babelrc</code> 中配置：
+      >可以实现按需加载组件，减少文件体积
     </p>
-    <pre><code class="language-javascript" lang="javascript">npm install babel-plugin-import --save-dev
+    <ol>
+      <li><code>npm install</code> 并配置 <code>.babelrc</code> 文件</li>
+    </ol>
+    <pre><code class='language-javascript' lang='javascript'>// shell
+$ npm install babel-plugin-import --save-dev
 
 // .babelrc
 &quot;plugins&quot;: [[&quot;import&quot;, {
-    &quot;libraryName&quot;: &quot;sx-echarts&quot;,
-    &quot;libraryDirectory&quot;: &quot;src/packages&quot;
-  }]]
+  &quot;libraryName&quot;: &quot;sui-design&quot;,
+  &quot;libraryDirectory&quot;: &quot;src/components&quot;
+}, &quot;sui-design&quot;]]
 </code></pre>
-    <p>然后这样按需引入组件，就可以减小体积了：</p>
-    <pre><code class="language-javascript" lang="javascript">import { line } from &#39;sx-echarts&#39;
-Vue.component(&#39;sxLine&#39;, line)
+    <ol start="2">
+      <li>使用 <code>ES6 Module</code> 按需引入组件</li>
+    </ol>
+    <pre><code class='language-javascript' lang='javascript'>import { button } from &#39;sui-design&#39;
+Vue.component(&#39;sxButton&#39;, button)
 </code></pre>
-    <p>
-      <strong>特别提醒</strong>
-    </p>
-    <ul>
+    <p><strong>特别提醒</strong></p>
+    <ol>
       <li>
-        1. 不要在项目中同时
-        <strong>全部引入</strong> 和 <strong>按需引入</strong> (存在冲突)
+        1.不要在项目中同时 <strong>全部引入</strong> 和
+        <strong>按需引入</strong> (存在冲突)
       </li>
       <li>
-        2. 按需引用仍然需要导入样式，即在
+        2.全局引入和按需引用都必须导入样式，即在
         <strong>main.js</strong> 或根组件执行
-        <code>import &#39;sx-echarts/lib/sxEcharts.css&#39;</code>
+        <code>import &#39;sui-design/lib/sui.css&#39;</code>
       </li>
       <li>
-        3. 由于组件库内部使用了
-        <code>lodash</code>，所以请在 <code>vue.config.js</code> 中提供自动导入
-        <code>lodash</code>
+        3.由于封装库强依赖: <strong>iView</strong> <strong>Element-Ui</strong>
+        <strong>Moment</strong> 请确保项目中引入对应库
       </li>
-    </ul>
-    <pre><code class="language-javascript" lang="javascript">// vue.config.js
-
-chainWebpack: (config) =&gt; {
-    config.plugin(&quot;provide&quot;).use(webpack.ProvidePlugin, [{
-      _: &quot;lodash&quot;,
-    }])
-  }
-</code></pre>
-    <p>&nbsp;</p> -->
+    </ol>
   </div>
 </template>
 <style lang="scss">
