@@ -17,8 +17,14 @@
         <span class="template-info-title">按钮时间选择器</span>
         <span class="template-info-content"
           >根据 level 属性展示不同层级按钮时间选择器 (level:
-          global、fragment)</span
-        >
+          global、fragment).按钮选择器弹出框基于
+          <a
+            href="https://element.eleme.cn/#/zh-CN/component/date-picker"
+            target="_blank"
+          >
+            Element-UI DatePicker</a
+          >
+        </span>
       </div>
     </div>
     <div class="template-item-right">

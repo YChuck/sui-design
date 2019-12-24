@@ -9,7 +9,65 @@
       <Icon3></Icon3>
     </div>
     <sx-header title="Api" level="secondary"></sx-header>
-    <div class="api-view"></div>
+    <div class="api-view">
+      <h5>Icon props:</h5>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">属性</th>
+              <th style="text-align:center;">说明</th>
+              <th style="text-align:center;">类型</th>
+              <th style="text-align:center;">默认值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;">type</td>
+              <td style="text-align:center;">图标名称</td>
+              <td style="text-align:center;">String</td>
+              <td style="text-align:center;">--</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">color</td>
+              <td style="text-align:center;">图标颜色</td>
+              <td style="text-align:center;">String</td>
+              <td style="text-align:center;">--</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">size</td>
+              <td style="text-align:center;">
+                图标规范大小(可自定义): small normal large
+              </td>
+              <td style="text-align:center;">String</td>
+              <td style="text-align:center;">normal</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <h5>Icon func:</h5>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>参数</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Icon.createFromSymbol(url)</td>
+              <td>url: 外部链接地址 (String类型)</td>
+              <td>
+                用于导入外部 IconFont 链接,自定义图标类型 (返回 Promise,
+                完成加载外部资源后可以直接使用)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
     <sx-header title="所有图标" level="secondary"></sx-header>
     <div class="icon-view">
       <div
