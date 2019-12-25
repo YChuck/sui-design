@@ -1,4 +1,6 @@
 export const types = [
+  'add-user',
+  'clear-cache',
   'data-statistics',
   'device-information',
   'menu',
