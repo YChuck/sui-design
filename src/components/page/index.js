@@ -26,6 +26,10 @@ export default {
       type: Number,
       default: 10,
     },
+    showCount: {
+      type: Boolean,
+      default: false,
+    },
     // 仅供 v-model 实现使用
     value: Number,
   },
@@ -42,7 +46,7 @@ export default {
   render(h) {
     const onChange = this.$listeners['on-change']
     const input = this.$listeners['input']
-    const { total, pageSize, inputNumber, current } = this
+    const { total, pageSize, inputNumber, current, showCount } = this
     /**
      * 标志: 是否设置 v-model
      * 经测试,通过判断 input 事件处理器中待被处理的监听函数的名称来判断是否设置 v-model
@@ -56,7 +60,7 @@ export default {
         ? input.fns.length === 2
         : input.fns.name === 'callback')
 
-    return h('div', { class: prefixCls }, [
+    let children = [
       h(
         Page,
         {
@@ -124,6 +128,11 @@ export default {
         },
         'GO',
       ),
-    ])
+    ]
+    if (showCount)
+      children.unshift(
+        h('span', { class: `${prefixCls}-total` }, `当前共${total}条搜索结果`),
+      )
+    return h('div', { class: prefixCls }, children)
   },
 }
