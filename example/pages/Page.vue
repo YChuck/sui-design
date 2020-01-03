@@ -5,6 +5,7 @@
     <div class="template-view">
       <Page0></Page0>
       <Page1></Page1>
+      <Page2></Page2>
     </div>
     <sx-header title="Api" level="secondary"></sx-header>
     <div class="api-view">
@@ -61,13 +62,14 @@
 </template>
 
 <script>
-import { Page0, Page1, Page2, Page3 } from '../components/Page'
+import { Page0, Page1, Page2 } from '../components/Page'
 
 export default {
   name: 'Page',
   components: {
     Page0,
     Page1,
+    Page2,
   },
 }
 </script>
