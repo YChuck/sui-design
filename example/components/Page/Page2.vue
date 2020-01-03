@@ -6,12 +6,13 @@
           class="template-instance-item"
           v-model="page"
           :total="50"
+          showCount
         ></sx-page>
       </div>
       <div class="template-item-info">
-        <span class="template-info-title">双向绑定</span>
+        <span class="template-info-title">显示总量</span>
         <span class="template-info-content"
-          >使用 v-model 来双向绑定选中页码</span
+          >设置 showCount 属性来展示数据总数信息</span
         >
       </div>
     </div>
@@ -26,7 +27,10 @@ export default {
   data() {
     return {
       json: `
-<sx-page v-model="page" :total="50"></sx-page>`,
+<sx-page 
+  v-model="page" 
+  :total="50" 
+  showCount></sx-page>`,
       page: 3,
     }
   },
