@@ -2,6 +2,11 @@ $page-prefix-cls: '#{$css-prefix}page';
 
 .#{$page-prefix-cls} {
   display: inline-flex;
+  &-total {
+    @include text($normal-font-weight, $smaller-size, $page-height, $regular-font-family);
+    height: $page-height;
+    margin-right: $page-total-margin;
+  }
   .ivu-page {
     font-size: 0;
     > li {
