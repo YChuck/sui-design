@@ -1,4 +1,7 @@
 export const types = [
+  'upgrade',
+  'long-arrow-up',
+  'floor',
   'add-user',
   'clear-cache',
   'data-statistics',
