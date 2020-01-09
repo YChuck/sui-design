@@ -51,8 +51,8 @@ export default {
               click: $e => {
                 // 点击已选中项仅触发 on-click 事件
                 this.$emit('on-click', { label, value }, $e)
-                // 点击未选中项触发
-                if (selectedId !== value) {
+                // 点击未选中项触发(存在 value 值才触发选中改变)
+                if ((value || value === 0) && selectedId !== value) {
                   this.selectedId = value
                   // 组件使用 v-model
                   this.$emit('input', value)
