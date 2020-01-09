@@ -29,12 +29,10 @@ export default {
   },
   render(h) {
     const { tabs, selectedId } = this
-
     return h(
       'div',
       { class: prefixCls },
       tabs.map(({ label, value, icon, class: classes }) => {
-        console.log(classes)
         return h(
           'div',
           {
@@ -44,6 +42,7 @@ export default {
               [`${prefixCls}-item-active`]: selectedId === value,
               [classes]: !!classes,
             },
+            // 通过样式设置内容排序
             style: {
               flexDirection:
                 icon && icon.position === 'left' ? 'row-reverse' : 'row',
