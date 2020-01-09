@@ -9,7 +9,7 @@ $tab-prefix-cls: '#{$css-prefix}tab';
 
   &-item {
     display: inline-flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     cursor: pointer;
     height: $tab-default-height;
@@ -37,6 +37,9 @@ $tab-prefix-cls: '#{$css-prefix}tab';
 
     &:hover:not(&-active) {
       color: $primary-color;
+      .sui-icon {
+        fill: $primary-color;
+      }
     }
 
     &-active {
@@ -44,10 +47,28 @@ $tab-prefix-cls: '#{$css-prefix}tab';
       color: $white;
       background-color: $primary-color;
       box-shadow: 0 1px 4px 0 rgba(35,90,167,0.30);
+      .sui-icon {
+        fill: $white;
+      }
     }
 
     &:hover, &-active {
       @include text($normal-font-weight, $smaller-size, $line-height-base, $medium-font-family);
+    }
+
+    .sui-icon {
+      &-small {
+        width: 9px;
+        height: 9px;
+      }
+      &-normal {
+        width: 12px;
+        height: 12px;
+      }
+      &-large {
+        width: 16px;
+        height: 16px;
+      }
     }
 
   }

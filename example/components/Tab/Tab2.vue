@@ -9,10 +9,9 @@
         ></sx-tab>
       </div>
       <div class="template-item-info">
-        <span class="template-info-title">基础用法</span>
+        <span class="template-info-title">设置标签独有类</span>
         <span class="template-info-content"
-          >使用 Tab 组件传入选项数据并对选中项的 value
-          进行双向绑定(请注意选项数据格式)</span
+          >通过为每个 tab 的配置项设置 class 属性来设置标签独有类</span
         >
       </div>
     </div>
@@ -40,6 +39,7 @@ data () {
       {
         label: 'tab2',
         value: 1,
+        class: 'tab-magic',
       },
       {
         label: 'tab3',
@@ -57,6 +57,7 @@ data () {
         {
           label: 'tab2',
           value: 1,
+          class: 'tab-magic',
         },
         {
           label: 'tab3',
@@ -67,3 +68,11 @@ data () {
   },
 }
 </script>
+
+<style lang="scss">
+.tab-magic {
+  color: skyblue;
+  font-weight: bolder;
+  background-color: yellow;
+}
+</style>

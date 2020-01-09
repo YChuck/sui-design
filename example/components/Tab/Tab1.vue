@@ -9,10 +9,11 @@
         ></sx-tab>
       </div>
       <div class="template-item-info">
-        <span class="template-info-title">基础用法</span>
+        <span class="template-info-title">设置图标</span>
         <span class="template-info-content"
-          >使用 Tab 组件传入选项数据并对选中项的 value
-          进行双向绑定(请注意选项数据格式)</span
+          >通过为每个 tab 的配置项设置 icon 属性来展示图标.<br />默认图标展示在右侧(设置
+          icon.position = left 来左展示图标).<br />请务必设置 icon.show
+          属性(always:总是展示 active:仅选中该tab时展示)</span
         >
       </div>
     </div>
@@ -36,6 +37,12 @@ data () {
       {
         label: 'tab1',
         value: 0,
+        icon: {
+          type: 'icon-history',
+          show: 'active',
+          size: 'normal',
+          position: 'left',
+        },
       },
       {
         label: 'tab2',
@@ -44,6 +51,12 @@ data () {
       {
         label: 'tab3',
         value: 2,
+        icon: {
+          type: 'icon-area-hot',
+          show: 'always',
+          color: 'red',
+          size: 'normal',
+        },
       },
     ],
   }
@@ -53,6 +66,12 @@ data () {
         {
           label: 'tab1',
           value: 0,
+          icon: {
+            type: 'icon-history',
+            show: 'active',
+            size: 'normal',
+            position: 'left',
+          },
         },
         {
           label: 'tab2',
@@ -61,6 +80,12 @@ data () {
         {
           label: 'tab3',
           value: 2,
+          icon: {
+            type: 'icon-area-hot',
+            show: 'always',
+            color: 'red',
+            size: 'normal',
+          },
         },
       ],
     }
