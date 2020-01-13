@@ -1,4 +1,6 @@
 export const types = [
+  'setting',
+  'camera-2',
   'upgrade',
   'long-arrow-up',
   'floor',
