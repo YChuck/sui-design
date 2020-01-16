@@ -23,6 +23,11 @@ export default {
       selectedId: null,
     }
   },
+  watch: {
+    value(v) {
+      this.selectedId = v
+    },
+  },
   mounted() {
     // 初始化选中项
     if (this.value || this.value === 0) this.selectedId = this.value
