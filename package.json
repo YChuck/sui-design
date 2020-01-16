@@ -1,6 +1,6 @@
 {
   "name": "sui-design",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "SX UI Components",
   "private": false,
   "main": "lib/sui.js",
