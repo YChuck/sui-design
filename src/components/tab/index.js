@@ -80,7 +80,7 @@ export default {
                 },
                 on: {
                   click: $e => {
-                    this.$emit('on-icon-click', $e)
+                    this.$emit('on-icon-click', { label, value }, $e)
                   },
                 },
               }),
