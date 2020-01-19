@@ -158,7 +158,7 @@
               <td style="text-align:center;">
                 点击单个 tab 的图标时触发(默认冒泡触发 on-click)
               </td>
-              <td style="text-align:center;">event</td>
+              <td style="text-align:center;">{ label, value }</td>
             </tr>
           </tbody>
         </table>
