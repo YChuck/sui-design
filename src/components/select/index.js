@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { Select } from 'iview'
 import Icon from '../icon'
 import { oneOf, isArray } from '../../utils'
@@ -22,30 +21,30 @@ export default {
       },
       default: 'fragment',
     },
+    value: {
+      type: [String, Number],
+    },
   },
   render(h) {
     let {
       level,
+      value,
       $listeners: { input },
     } = this
-
-    const inputFn = v => {
-      this.close = !!v
-    }
-
-    if (input) {
-      if (isArray(input.fns)) input.fns.push(inputFn)
-      else input.fns = [input.fns, inputFn]
-    } else input = inputFn
 
     return h('div', { class: [prefixCls, `${prefixCls}-${level}`] }, [
       h(
         Select,
         {
-          props: { clearable: true, ...this.$attrs },
+          props: { clearable: true, value, ...this.$attrs },
           on: {
             ...this.$listeners,
-            input,
+            // 创建 input 事件传入 iview select 模拟 v-model
+            input: v => {
+              this.close = !!v
+              // 这里的input事件处理函数: 封装组件的v-model的事件处理函数
+              input(v)
+            },
           },
           /**
            * 将封装组件的作用域插槽传入 iView Select 组件

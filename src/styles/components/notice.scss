@@ -59,6 +59,7 @@ $notice-prefix-cls: "#{$css-prefix}notice";
   position: fixed;
   display: flex;
   flex-direction: column;
+  z-index: 999;
   &-notice {
     align-items: flex-end;
   }

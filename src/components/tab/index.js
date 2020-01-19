@@ -23,6 +23,11 @@ export default {
       selectedId: null,
     }
   },
+  watch: {
+    value(v) {
+      this.selectedId = v
+    },
+  },
   mounted() {
     // 初始化选中项
     if (this.value || this.value === 0) this.selectedId = this.value
@@ -75,7 +80,7 @@ export default {
                 },
                 on: {
                   click: $e => {
-                    this.$emit('on-icon-click', $e)
+                    this.$emit('on-icon-click', { label, value }, $e)
                   },
                 },
               }),
