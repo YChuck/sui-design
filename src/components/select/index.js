@@ -30,13 +30,17 @@ export default {
       level,
       value,
       $listeners: { input },
+      $attrs,
     } = this
+
+    // 用户是否设置 clearable
+    let clearable = $attrs.hasOwnProperty('clearable')
 
     return h('div', { class: [prefixCls, `${prefixCls}-${level}`] }, [
       h(
         Select,
         {
-          props: { clearable: true, value, ...this.$attrs },
+          props: { value, ...$attrs },
           on: {
             ...this.$listeners,
             // 创建 input 事件传入 iview select 模拟 v-model
@@ -56,11 +60,13 @@ export default {
       h('div', { class: `${prefixCls}-icon` }, [
         h(Icon, {
           props: {
-            type: this.close
-              ? 'icon-error-circle'
-              : level === 'fragment'
-              ? 'icon-arraw-vertical'
-              : 'icon-arrow-down',
+            // 只有在设置了 clearable 并且 当前是可清除状态 才能显示删除按钮
+            type:
+              clearable && this.close
+                ? 'icon-error-circle'
+                : level === 'fragment'
+                ? 'icon-arraw-vertical'
+                : 'icon-arrow-down',
           },
           style: {
             width: level === 'fragment' && !this.close ? '16px' : '12px',

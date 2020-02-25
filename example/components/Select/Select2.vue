@@ -8,6 +8,7 @@
           v-model="model"
           ref="select"
           style="width: 200px;"
+          clearable
         >
           <Option
             v-for="item in cityList"
@@ -40,8 +41,9 @@ export default {
       json: `
 <sx-select 
     level="global" 
-    style="width: 100px;" 
-    ref="select"/>
+    style="width: 200px;" 
+    ref="select"
+    clearable />
     
 // iView select 实例 = this.$refs.select.$children[0]`,
       cityList: [
