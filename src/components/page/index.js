@@ -93,7 +93,7 @@ export default {
             // 限制 input value 值: 1 <= v <= 最大页数
             let v = Math.min(
               Number(event.target.value) || 0,
-              Math.round(total / pageSize),
+              Math.ceil(total / pageSize),
             )
 
             if (v) event.target.value = v
