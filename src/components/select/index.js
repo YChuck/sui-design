@@ -33,6 +33,9 @@ export default {
       $attrs,
     } = this
 
+    // 初始化传入值 则设置可清除
+    if (value) this.close = true
+
     // 用户是否设置 clearable
     let clearable = $attrs.hasOwnProperty('clearable')
 
@@ -69,8 +72,10 @@ export default {
                 : 'icon-arrow-down',
           },
           style: {
-            width: level === 'fragment' && !this.close ? '16px' : '12px',
-            height: level === 'fragment' && !this.close ? '16px' : '12px',
+            width:
+              level === 'fragment' && clearable && this.close ? '12px' : '16px',
+            height:
+              level === 'fragment' && clearable && this.close ? '12px' : '16px',
           },
         }),
       ]),
