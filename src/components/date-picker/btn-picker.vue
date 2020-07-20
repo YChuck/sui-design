@@ -64,6 +64,10 @@ export default {
       },
       default: 'global',
     },
+    pickerOptions: {
+      type: Array,
+      required: false,
+    },
   },
   data() {
     return {
@@ -241,9 +245,19 @@ export default {
       let { btnOpts, showFragment } = this
       return showFragment ? btnOpts.slice(0, 3) : btnOpts
     },
-    // 获取 date-picker 的必要配置
+    // 获取 date-picker 的必要配置 (若存在 自定义配置 则增量覆盖)
     pickers() {
-      return this.btns.filter(v => v.options)
+      const { pickerOptions } = this
+      let pickers = this.btns.filter(v => v.options)
+      return Array.isArray(pickerOptions)
+        ? pickers.map((v, i) => {
+            v.options = {
+              ...v.options,
+              ...(pickerOptions[i] || {}),
+            }
+            return v
+          })
+        : pickers
     },
   },
   /**

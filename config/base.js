@@ -22,7 +22,7 @@ const buildConfig = env => {
     entry: './example/main.js',
     output: {
       // 指定在浏览器中所引用的「此输出目录对应的公开 URL」
-      publicPath: '/',
+      publicPath: '/sui-design/',
       path: resolve('dist'),
       filename: 'js/[name].js',
       chunkFilename: 'js/[name]_[chunkhash:8].js',

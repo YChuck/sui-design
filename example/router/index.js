@@ -97,5 +97,6 @@ const routes = [
 
 export default new Router({
   mode: 'history',
+  base: '/sui-design/',
   routes,
 })
