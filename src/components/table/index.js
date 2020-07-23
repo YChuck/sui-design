@@ -1,7 +1,7 @@
 import { Table } from 'iview'
 import Icon from '../icon'
 import { PRIMARY_COLOR } from '../../constants'
-import { isNumber } from '../../utils'
+import { isNumber, shallowCopy } from '../../utils'
 
 const prefixCls = 'sui-table'
 
@@ -66,7 +66,7 @@ export default {
             ...this.$attrs,
           },
           on: {
-            ...this.$listeners,
+            ...shallowCopy(this.$listeners, ['on-all-change']),
           },
           /**
            * 将封装组件的作用域插槽传入 iView Table 组件
@@ -85,6 +85,7 @@ export default {
             on: {
               click: () => {
                 this.isAll = !this.isAll
+                this.$emit('on-all-change', this.isAll)
               },
             },
           },
