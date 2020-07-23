@@ -6,8 +6,8 @@
   "main": "lib/sui.js",
   "scripts": {
     "serve": "webpack-dev-server --progress --config ./config/base.js",
-    "build": "webpack --progress --env.production --config ./config/base.js",
-    "build:report": "webpack --progress --env.production --config ./config/base.js --env.report",
+    "build": "cross-env NODE_ENV=production webpack --progress --config ./config/base.js",
+    "build:report": "cross-env NODE_ENV=production webpack --progress --config ./config/base.js --env.report",
     "lib": "webpack --progress --config ./config/lib.js",
     "lib:report": "webpack --progress --config ./config/lib.js --env.report",
     "lint": "eslint ./src --fix",
@@ -53,6 +53,7 @@
     "babel-plugin-import": "^1.12.2",
     "clean-webpack-plugin": "^3.0.0",
     "conventional-changelog-cli": "^2.0.28",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
     "cz-conventional-changelog": "^3.0.2",

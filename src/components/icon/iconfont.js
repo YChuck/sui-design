@@ -11,9 +11,7 @@
       document.write(
         '<style>.svgfont {display: inline-block;width: 1em;height: 1em;fill: currentColor;vertical-align: -0.1em;font-size:16px;}</style>',
       )
-    } catch (c) {
-      console && console.log(c)
-    }
+    } catch (c) {}
   }
   !(function(c) {
     if (document.addEventListener)

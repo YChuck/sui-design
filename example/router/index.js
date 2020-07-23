@@ -97,6 +97,6 @@ const routes = [
 
 export default new Router({
   mode: 'history',
-  base: '/sui-design/',
+  base: process.env.NODE_ENV === 'production' ? '/sui-design/' : '/',
   routes,
 })
