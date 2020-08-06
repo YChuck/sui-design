@@ -22,7 +22,7 @@ export default {
       default: 'fragment',
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, Array],
     },
   },
   render(h) {
