@@ -1,4 +1,5 @@
 export const types = [
+  'loading-2',
   'setting',
   'camera-2',
   'upgrade',
