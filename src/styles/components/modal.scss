@@ -1,0 +1,109 @@
+$modal-prefix-cls: '#{$css-prefix}modal';
+
+// @mixin modal-size($height, $border-radius, $span-height) {
+//   height: $height;
+//   border-radius: $border-radius;
+//   span {
+//     height: $span-height !important;
+//     line-height: $span-height !important;
+//     padding-right: $span-height !important;
+//   }
+// }
+
+// @mixin modal-color($color, $background, $border) {
+//   span {
+//     color: $color !important;
+//   }
+//   background-color: $background;
+//   border-color: $border !important;
+// }
+
+.#{$modal-prefix-cls} {
+  width: auto;
+  margin: 0 auto;
+  position: fixed;
+  outline: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  &-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    z-index: 999;
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-content {
+    position: relative;
+    background-color: #fff;
+    border: 0;
+    background-clip: padding-box;
+  }
+
+  &-header {
+    width: auto;
+    padding: 14px 16px;
+    background-color: #edf2f8;
+
+    &-inner {
+      line-height: 17px;
+      font-size: 14px;
+      color: #4a4a4a;
+      letter-spacing: 1px;
+      font-family: $medium-font-family;
+    }
+  }
+
+  &-close {
+    font-size: 12px;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  &-body {
+    width: auto;
+
+    font-family: $regular-font-family;
+    margin: 30px 90px;
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &-footer {
+    width: auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 0 20px;
+    }
+    &-boot {
+      flex: auto;
+      text-align: center;
+      min-width: 180px;
+    }
+  }
+}

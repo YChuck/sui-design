@@ -11,6 +11,7 @@ import SxInput from './components/input'
 import SxSelect from './components/select'
 import SxHeader from './components/header'
 import SxPage from './components/page'
+import SxModal from './components/modal'
 
 export const components = [
   SxIcon,
@@ -22,6 +23,7 @@ export const components = [
   SxSelect,
   SxHeader,
   SxPage,
+  SxModal,
 ]
 
 function install(_Vue) {
@@ -50,4 +52,5 @@ export default {
   SxSelect,
   SxHeader,
   SxPage,
+  SxModal,
 }

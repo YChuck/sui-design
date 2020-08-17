@@ -84,6 +84,11 @@ export const components = [
     name: 'page',
     component: () => import(/* webpackChunkName: "page" */ '../pages/Page.vue'),
   },
+  {
+    path: '/modal',
+    name: 'modal',
+    component: () => import(/* webpackChunkName: "modal" */ '../pages/Modal.vue'),
+  },
 ]
 
 const routes = [
