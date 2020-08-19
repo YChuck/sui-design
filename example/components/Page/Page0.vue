@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div class="template-instance">
         <sx-page class="template-instance-item" :total="50"></sx-page>
       </div>
       <div class="template-item-info">

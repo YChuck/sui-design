@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div class="template-instance">
         <sx-button class="template-instance-item" @click="open">消息</sx-button>
       </div>
       <div class="template-item-info">
