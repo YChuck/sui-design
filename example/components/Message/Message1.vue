@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div class="template-instance">
         <sx-button class="template-instance-item" @click="open(true)"
           >成功</sx-button
         >

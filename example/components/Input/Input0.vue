@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div class="template-instance">
         <sx-input
           class="template-instance-item"
           style="width: 200px;"

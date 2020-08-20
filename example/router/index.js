@@ -84,6 +84,12 @@ export const components = [
     name: 'page',
     component: () => import(/* webpackChunkName: "page" */ '../pages/Page.vue'),
   },
+  {
+    path: '/loading',
+    name: 'loading',
+    component: () =>
+      import(/* webpackChunkName: "loading" */ '../pages/Loading.vue'),
+  },
 ]
 
 const routes = [
