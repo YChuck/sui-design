@@ -93,7 +93,10 @@ const checkParent = dom => {
     if (t.parentNode.__vue__) {
       let parentVue = t.parentNode.__vue__
       // 向 vue 生命周期 beforeDestroy 添加销毁 loading 的方法
-      parentVue.$options.beforeDestroy.push(loadingDestroy(parentVue._uid))
+      let fn = loadingDestroy(parentVue._uid)
+      if (parentVue.$options.beforeDestroy)
+        parentVue.$options.beforeDestroy.push(fn)
+      else parentVue.$options.beforeDestroy = [fn]
       if (!vueMap[parentVue._uid]) vueMap[parentVue._uid] = []
       return parentVue._uid
     } else t = t.parentNode
