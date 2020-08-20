@@ -11,6 +11,7 @@ import SxInput from './components/input'
 import SxSelect from './components/select'
 import SxHeader from './components/header'
 import SxPage from './components/page'
+import SxLoading from './components/loading'
 
 export const components = [
   SxIcon,
@@ -30,6 +31,7 @@ function install(_Vue) {
   })
   _Vue.prototype.$SxNotice = SxNotice
   _Vue.prototype.$SxMessage = SxMessage
+  _Vue.prototype.$SxLoading = SxLoading
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -50,4 +52,5 @@ export default {
   SxSelect,
   SxHeader,
   SxPage,
+  SxLoading,
 }

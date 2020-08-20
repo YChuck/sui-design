@@ -33,6 +33,8 @@ const LARGER_SIZE = '20'
 
 const WITHOUT_ATTRS = ['class', 'staticClass', 'style', 'staticStyle']
 
+const NON_ABSOLUTE_POSITION = ['fixed', 'relative', 'absolute']
+
 export {
   CLASS_PREFIX,
   PRIMARY_COLOR,
@@ -59,4 +61,5 @@ export {
   LARGE_SIZE,
   LARGER_SIZE,
   WITHOUT_ATTRS,
+  NON_ABSOLUTE_POSITION,
 }
