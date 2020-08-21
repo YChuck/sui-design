@@ -1,23 +1,5 @@
 $modal-prefix-cls: '#{$css-prefix}modal';
 
-// @mixin modal-size($height, $border-radius, $span-height) {
-//   height: $height;
-//   border-radius: $border-radius;
-//   span {
-//     height: $span-height !important;
-//     line-height: $span-height !important;
-//     padding-right: $span-height !important;
-//   }
-// }
-
-// @mixin modal-color($color, $background, $border) {
-//   span {
-//     color: $color !important;
-//   }
-//   background-color: $background;
-//   border-color: $border !important;
-// }
-
 .#{$modal-prefix-cls} {
   width: auto;
   margin: 0 auto;
@@ -27,16 +9,7 @@ $modal-prefix-cls: '#{$css-prefix}modal';
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-
-  &-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    bottom: 1px;
-  }
+  min-width: get-vw(600px);
 
   &-mask {
     position: fixed;
@@ -46,17 +19,22 @@ $modal-prefix-cls: '#{$css-prefix}modal';
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
+    width: 100%;
     z-index: 999;
-    &-hidden {
-      display: none;
-    }
   }
 
   &-content {
     position: relative;
     background-color: #fff;
     border: 0;
-    background-clip: padding-box;
+  }
+
+  &-close {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    opacity: 0.6;
+    cursor: pointer;
   }
 
   &-header {
@@ -73,18 +51,8 @@ $modal-prefix-cls: '#{$css-prefix}modal';
     }
   }
 
-  &-close {
-    font-size: 12px;
-    position: absolute;
-    right: 16px;
-    top: 8px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
   &-body {
     width: auto;
-
     font-family: $regular-font-family;
     margin: 30px 90px;
     padding: 16px;
@@ -94,7 +62,7 @@ $modal-prefix-cls: '#{$css-prefix}modal';
 
   &-footer {
     width: auto;
-    padding: 30px;
+    padding: 20px 30px 30px;
     display: flex;
     justify-content: center;
     button {
@@ -103,7 +71,7 @@ $modal-prefix-cls: '#{$css-prefix}modal';
     &-boot {
       flex: auto;
       text-align: center;
-      min-width: 180px;
+      min-width: 245px;
     }
   }
 }

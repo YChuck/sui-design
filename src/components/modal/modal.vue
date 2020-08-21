@@ -1,11 +1,11 @@
 <template>
   <section>
     <div :class="`${prefixCls}-mask`" v-show="visible" @click="mask"></div>
-    <div :class="`${prefixCls}`" :style="customStyles" v-show="visible">
+    <div :class="`${prefixCls}`" v-show="visible">
       <div :class="`${prefixCls}-content`">
         <a :class="`${prefixCls}-close`" v-if="hasIcon" @click="close">
           <slot name="close">
-            <Icon type="icon-close"></Icon>
+            <Icon size="normal" type="icon-close"></Icon>
           </slot>
         </a>
         <div :class="`${prefixCls}-header`" v-if="showHead">
@@ -16,15 +16,13 @@
         <div :class="`${prefixCls}-body`">
           <slot></slot>
         </div>
-        <div :class="`${prefixCls}-footer`" v-if="!hasFooter">
+        <div :class="`${prefixCls}-footer`" v-if="hasFooter">
           <slot name="footer">
             <div :class="`${prefixCls}-footer-boot`">
-              <Button type="default" @click.native="ok">{{ okText }}</Button>
-              <Button type="cancel" @click.native="cancel">{{
-                cancelText
-              }}</Button>
+              <Button type="default" @click="ok">{{ okText }}</Button>
+              <Button type="cancel" @click="cancel">{{ cancelText }}</Button>
             </div>
-            <Button type="error" @click.native="error" v-show="hasError">{{
+            <Button type="error" @click="error" v-show="hasError">{{
               errorText
             }}</Button>
           </slot>
@@ -56,6 +54,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    keyClosable: {
+      type: Boolean,
+      default: true,
+    },
     title: {
       type: String,
     },
@@ -75,16 +77,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    width: {
-      type: [Number, String],
-      default: 520,
-    },
-    customStyle: {
-      type: Object,
-    },
     hasFooter: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() {
@@ -94,60 +89,31 @@ export default {
       visible: this.value,
     }
   },
-  computed: {
-    customStyles() {
-      let style = {}
-      const width = parseInt(this.width)
-      const styleWidth = {
-        width: width <= 100 ? `${width}%` : `${width}px`,
-      }
-      const customStyle = this.customStyle ? this.customStyle : {}
-      Object.assign(style, styleWidth, customStyle)
-      return style
-    },
-  },
   methods: {
     ok() {
       this.visible = false
       this.$emit('input', false)
       this.$emit('on-ok')
     },
-    close() {
+    cancel() {
       this.visible = false
       this.$emit('input', false)
       this.$emit('on-cancel')
+    },
+    close() {
+      this.cancel()
     },
     error() {
       this.visible = false
       this.$emit('input', false)
       this.$emit('on-error')
     },
-    cancel() {
-      this.close()
-    },
     mask() {
-      if (this.maskClosable) {
-        this.close()
-      }
+      this.maskClosable && this.close()
     },
     EscClose(e) {
-      if (this.visible && this.hasIcon) {
-        if (e.keyCode === 27) {
-          this.close()
-        }
-      }
+      this.visible && this.keyClosable && e.keyCode === 27 && this.close()
     },
-  },
-  mounted() {
-    let showHead = true
-    if (this.$slots.header === undefined && !this.title) {
-      showHead = false
-    }
-    this.showHead = showHead
-    document.addEventListener('keydown', this.EscClose)
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.EscClose)
   },
   watch: {
     value(val) {
@@ -159,6 +125,13 @@ export default {
         this.showHead = !!val
       }
     },
+  },
+  mounted() {
+    this.showHead = this.$slots.header || this.title
+    document.addEventListener('keydown', this.EscClose)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.EscClose)
   },
 }
 </script>

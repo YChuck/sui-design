@@ -32,6 +32,7 @@ function install(_Vue) {
   })
   _Vue.prototype.$SxNotice = SxNotice
   _Vue.prototype.$SxMessage = SxMessage
+  _Vue.prototype.$SxModal = SxModal
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

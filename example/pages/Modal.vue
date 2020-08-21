@@ -4,6 +4,8 @@
     <sx-header title="代码示例" level="secondary"></sx-header>
     <div class="template-view">
       <Modal0></Modal0>
+      <Modal1></Modal1>
+      <Modal2></Modal2>
     </div>
     <sx-header title="Api" level="secondary"></sx-header>
     <div class="api-view">
@@ -57,18 +59,109 @@
           </tbody>
         </table>
       </figure>
+      <h5>Modal slots:</h5>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">Slot名</th>
+              <th style="text-align:center;">说明</th>
+              <td style="text-align:center;">默认处理</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;">close</td>
+              <td style="text-align:center;">Icon栏替换</td>
+              <td style="text-align:center;">关闭icon</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">header</td>
+              <td style="text-align:center;">标题栏</td>
+              <td style="text-align:center;">title文字</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">footer</td>
+              <td style="text-align:center;">底部</td>
+              <td style="text-align:center;">三个预置按钮</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <h5>$SxModal:</h5>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">方法名</th>
+              <th style="text-align:center;">说明</th>
+              <td style="text-align:center;">默认处理</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;">confirm</td>
+              <td style="text-align:center;">加载确认框配置</td>
+              <td style="text-align:center;">无error按钮、Esc、蒙版关闭失效</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">error</td>
+              <td style="text-align:center;">加载error框配置</td>
+              <td style="text-align:center;">有error按钮、Esc、蒙版关闭失效</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">config</td>
+              <td style="text-align:center;">无预设配置</td>
+              <td style="text-align:center;">开放全配置</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <h5>$SxModal.config</h5>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">配置项</th>
+              <th style="text-align:center;">说明</th>
+              <td style="text-align:center;">配置举例</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;">所有props</td>
+              <td style="text-align:center;">同名同效果</td>
+              <td style="text-align:center;">config.props.???=???</td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">event</td>
+              <td style="text-align:center;">配置事件处理回调函数</td>
+              <td style="text-align:center;">
+                config.event.[onOk,onCancle,onError,onRemove(Modal销毁时)]
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center;">render</td>
+              <td style="text-align:center;">content/body内自定义render</td>
+              <td style="text-align:center;">config.props.render=???</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
       <p class="api-desc">Modal组件类似于 iView Modal</p>
     </div>
   </div>
 </template>
 
 <script>
-import { Modal0 } from '../components/Modal/index'
+import { Modal0, Modal1, Modal2 } from '../components/Modal/index'
 
 export default {
   name: 'Modal',
   components: {
     Modal0,
+    Modal1,
+    Modal2,
   },
   data() {
     return {
@@ -78,7 +171,7 @@ export default {
           default: false,
           intro: 'v-model绑定切换显示',
         },
-        closable: {
+        keyClosable: {
           type: Boolean,
           default: true,
           intro: '开启关闭按钮与ESC按键关闭',
@@ -118,20 +211,10 @@ export default {
           type: Boolean,
           default: false,
         },
-        width: {
-          intro: 'Modal宽度',
-          type: [Number, String],
-          default: 520,
-        },
-        customStyle: {
-          intro: '自定义样式',
-          default: '--',
-          type: Object,
-        },
         hasFooter: {
           intro: '有无底部栏',
           type: Boolean,
-          default: false,
+          default: true,
         },
       },
     }

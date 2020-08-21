@@ -1,68 +1,46 @@
-// import Modal from './confirm';
-import Modal from "./modal.vue";
+import Modal from './$modal'
 
-// let modalInstance;
+let instance
 
-// function getModalInstance (render = undefined) {
-//     modalInstance = modalInstance || Modal.newInstance({
-//         closable: false,
-//         maskClosable: false,
-//         footerHide: true,
-//         render: render
-//     });
+function preconfig(config) {
+  let props = {
+    ...config.props,
+    keyClosable: false,
+    maskClosable: false,
+  }
+  instance = Modal.new({ ...config, props })
+  instance.show()
+}
 
-//     return modalInstance;
-// }
+Modal.confirm = function(config = {}) {
+  return (
+    config.props &&
+    config.event &&
+    (() => {
+      config.props.hasError = false
+      return preconfig(config)
+    })()
+  )
+}
 
-// function confirm (options) {
-//     const render = ('render' in options) ? options.render : undefined;
-//     let instance  = getModalInstance(render);
+Modal.error = function(config = {}) {
+  return (
+    config.props &&
+    config.event &&
+    (() => {
+      config.props.hasError = true
+      return preconfig(config)
+    })()
+  )
+}
 
-//     options.onRemove = function () {
-//         modalInstance = null;
-//     };
+Modal.config = function(config = {}) {
+  instance = Modal.new(config)
+  instance.show()
+}
 
-//     instance.show(options);
-// }
+Modal.remove = function() {
+  instance && instance.remove()
+}
 
-// Modal.info = function (props = {}) {
-//     props.icon = 'info';
-//     props.showCancel = false;
-//     return confirm(props);
-// };
-
-// Modal.success = function (props = {}) {
-//     props.icon = 'success';
-//     props.showCancel = false;
-//     return confirm(props);
-// };
-
-// Modal.warning = function (props = {}) {
-//     props.icon = 'warning';
-//     props.showCancel = false;
-//     return confirm(props);
-// };
-
-// Modal.error = function (props = {}) {
-//     props.icon = 'error';
-//     props.showCancel = false;
-//     return confirm(props);
-// };
-
-// Modal.confirm = function (props = {}) {
-//     props.icon = 'confirm';
-//     props.showCancel = true;
-//     return confirm(props);
-// };
-
-// Modal.remove = function () {
-//     if (!modalInstance) {   // at loading status, remove after Cancel
-//         return false;
-//     }
-
-//     const instance = getModalInstance();
-
-//     instance.remove();
-// };
-
-export default Modal;
+export default Modal
