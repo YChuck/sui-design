@@ -17,12 +17,13 @@ const dev = require('./dev')
 const prod = require('./prod')
 
 const buildConfig = env => {
-  let isProd = env && env.production
+  // let isProd = env && env.production
+  let isProd = process.env.NODE_ENV === 'production'
   let base = {
     entry: './example/main.js',
     output: {
       // 指定在浏览器中所引用的「此输出目录对应的公开 URL」
-      publicPath: '/',
+      publicPath: isProd ? '/sui-design/' : '/',
       path: resolve('dist'),
       filename: 'js/[name].js',
       chunkFilename: 'js/[name]_[chunkhash:8].js',

@@ -1,3 +1,4 @@
+# 使用 node 发布 (该脚本弃用)
 from __future__ import with_statement
 from fabric.api import *
 import os
@@ -5,13 +6,12 @@ import os
 # fab run_208 publish_208  -f ./publish.py
 @task
 def run_208():
-    env.hosts = ['192.168.199.5']
-    env.user = 'sxkj'
-    env.password = 'sx'
+    env.hosts = ['119.45.142.60']
+    env.user = 'root'
 
 @task
 def publish_208():
-    NGNIX_PATH_208 = '/home/sxkj/yangxiang/sui-design/html'
+    NGNIX_PATH_208 = '/root/nginx/www/html/sui-design'
 
     local('npm run build')
     local('tar cvzf dist.tgz dist')
@@ -19,5 +19,6 @@ def publish_208():
         sudo('rm -rf ./*')
         put('dist.tgz', 'dist.tgz')
         run('tar xvf dist.tgz')
-        run('rm -rf dist.tgz')
+        run('mv dist/* .')
+        run('rm -rf dist.tgz dist')
     local('rm -rf publish.pyc dist.tgz')

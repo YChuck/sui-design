@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div>
         <sx-header title="填充内容啦"><sx-button>click</sx-button></sx-header>
       </div>
       <div class="template-item-info">

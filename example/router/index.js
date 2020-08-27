@@ -90,6 +90,12 @@ export const components = [
     component: () =>
       import(/* webpackChunkName: "modal" */ '../pages/Modal.vue'),
   },
+  {
+    path: '/loading',
+    name: 'loading',
+    component: () =>
+      import(/* webpackChunkName: "loading" */ '../pages/Loading.vue'),
+  },
 ]
 
 const routes = [
@@ -103,5 +109,6 @@ const routes = [
 
 export default new Router({
   mode: 'history',
+  base: process.env.NODE_ENV === 'production' ? '/sui-design/' : '/',
   routes,
 })

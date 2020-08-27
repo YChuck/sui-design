@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div>
         <sx-header title="我是主标题"></sx-header>
       </div>
       <div class="template-item-info">

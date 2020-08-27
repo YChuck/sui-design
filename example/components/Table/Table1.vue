@@ -1,7 +1,7 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div>
         <sx-table :columns="columns" :data="data" :more="2"></sx-table>
       </div>
       <div class="template-item-info">
