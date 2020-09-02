@@ -68,6 +68,10 @@ export default {
       type: Array,
       required: false,
     },
+    showCustom: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -78,6 +82,7 @@ export default {
         date: '',
         week: '',
         month: '',
+        custom: '',
       },
       // 页面展示的时间格式化数据
       htmlPrint: '',
@@ -232,6 +237,36 @@ export default {
             this.$emit('on-change', { first, last, type: 'thirty' })
           },
         },
+        {
+          id: 6,
+          title: '自定义',
+          click: ({ id, options }) => {
+            options.show = true
+            this.selectedIndex = id
+            this.$nextTick(() => {
+              this.$refs.picker[3].focus()
+            })
+          },
+          options: {
+            show: false,
+            type: 'daterange',
+            model: 'custom',
+            format: 'yyyy-MM-dd',
+            placeholder: '选择自定义时间区域',
+            change: time => {
+              this.clearTargetDate('custom')
+              let first = moment(time[0]).startOf('day')
+              let last = moment(time[1]).endOf('day')
+              this.htmlPrint = `${first.format('YYYY-MM-DD')}~${last.format(
+                'YYYY-MM-DD',
+              )}`
+              this.$emit('on-change', { first, last, type: 'custom' })
+            },
+            pickerOptions: {
+              disabledDate: time => time.getTime() > Date.now(),
+            },
+          },
+        },
       ],
     }
   },
@@ -242,13 +277,17 @@ export default {
     },
     // 根据显示级别获取按钮配置参数
     btns() {
-      let { btnOpts, showFragment } = this
-      return showFragment ? btnOpts.slice(0, 3) : btnOpts
+      let { btnOpts, showFragment, showCustom } = this
+      return (showFragment ? btnOpts.slice(0, 3) : btnOpts.slice(0, 6)).concat(
+        showCustom ? btnOpts[6] : [],
+      )
     },
     // 获取 date-picker 的必要配置 (若存在 自定义配置 则增量覆盖)
     pickers() {
-      const { pickerOptions } = this
-      let pickers = this.btns.filter(v => v.options)
+      const { pickerOptions, showCustom } = this
+      let pickers = this.btns.filter(
+        v => v.options && (v.options.model === 'custom' ? showCustom : true),
+      )
       return Array.isArray(pickerOptions)
         ? pickers.map((v, i) => {
             v.options = {
