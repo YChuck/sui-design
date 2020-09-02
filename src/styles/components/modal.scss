@@ -1,77 +1,82 @@
 $modal-prefix-cls: '#{$css-prefix}modal';
 
 .#{$modal-prefix-cls} {
-  width: auto;
-  margin: 0 auto;
-  position: fixed;
-  outline: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  min-width: get-vw(600px);
-
   &-mask {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    width: 100%;
     z-index: 999;
+    background-color: $modal-mask-bg-color;
   }
 
   &-content {
-    position: relative;
-    background-color: #fff;
-    border: 0;
-  }
-
-  &-close {
-    position: absolute;
-    top: 8px;
-    right: 15px;
-    opacity: 0.6;
-    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    min-width: 440px;
+    background-color: $modal-content-bg-color;
   }
 
   &-header {
-    width: auto;
-    padding: 14px 16px;
-    background-color: #edf2f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 47px;
+    box-sizing: border-box;
+    padding: 0 15px 0 30px;
+    background-color: $modal-header-bg-color;
 
     &-inner {
-      line-height: 17px;
-      font-size: 14px;
-      color: #4a4a4a;
-      letter-spacing: 1px;
-      font-family: $medium-font-family;
+      @include text(
+        $modal-title-font-weight,
+        $modal-title-font-size,
+        1,
+        $medium-font-family
+      );
+      @include text-overflow();
+      color: $default-font-color;
+      max-width: 320px;
+    }
+  }
+
+  &-close {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &-icon {
+      width: 26px;
+      height: 26px;
     }
   }
 
   &-body {
-    width: auto;
-    font-family: $regular-font-family;
-    margin: 30px 90px;
-    padding: 16px;
-    font-size: 12px;
-    line-height: 1.5;
+    @include text(
+      $modal-body-font-weight,
+      $modal-body-font-size,
+      1.5,
+      $regular-font-family
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
   }
 
   &-footer {
-    width: auto;
-    padding: 20px 30px 30px;
     display: flex;
     justify-content: center;
-    button {
-      margin: 0 20px;
+    align-items: center;
+    padding-bottom: 30px;
+    .sui-btn:nth-of-type(2) {
+      margin-left: 40px;
     }
-    &-boot {
-      flex: auto;
-      text-align: center;
-      min-width: 245px;
+    .sui-btn:nth-of-type(3) {
+      margin-left: 60px;
     }
   }
 }

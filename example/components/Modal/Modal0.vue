@@ -1,18 +1,21 @@
 <template>
   <div class="template-item">
     <div class="template-item-left">
-      <div class="tempalte-instance">
+      <div class="template-instance">
         <sx-button @click="display0 = true" class="template-instance-item"
-          >基础Modal
+          >Modal
         </sx-button>
         <sx-button @click="display1 = true" class="template-instance-item"
-          >附加error按钮Modal
+          >Modal(添加error按钮)
         </sx-button>
       </div>
       <sx-modal
         v-model="display0"
-        title="title"
-        :hasIcon="true"
+        title="基础弹窗"
+        maskClosable
+        ok-text="ok"
+        cancel-text="cancel"
+        error-text="error"
         @on-ok="ok"
         @on-cancel="cancel"
         >content
@@ -20,8 +23,7 @@
       <sx-modal
         v-model="display1"
         hasError
-        title="title"
-        :hasIcon="true"
+        title="带删除按钮弹窗"
         @on-ok="ok"
         @on-cancel="cancel"
         @on-error="error"
@@ -30,7 +32,9 @@
       <div class="template-item-info">
         <span class="template-info-title">基础用法</span>
         <span class="template-info-content"
-          >三个预置按钮事件绑定，标题设置</span
+          >以组件形式引入页面中,通过 value 属性来 显示/隐藏 弹窗.<br />可使用
+          v-modal 实现双向绑定.<br />默认键盘 ESC 键可关闭弹窗.<br />
+          maskClosable 属性设置蒙板是否可触发关闭.</span
         >
       </div>
     </div>
@@ -46,15 +50,18 @@ export default {
     return {
       display0: false,
       display1: false,
-      json: ` <sx-modal v-model="display"
-          hasError
-          title="test"
-          :hasIcon="true"
-          @on-ok="ok"
-          @on-cancel="cancel"
-          @on-error="error"
-          >content
-        </sx-modal>`,
+      json: `
+<sx-modal
+  v-model="display0"
+  title="基础弹窗"
+  maskClosable
+  ok-text="ok"
+  cancel-text="cancel"
+  error-text="error"
+  @on-ok="ok"
+  @on-cancel="cancel"
+  >content
+</sx-modal>`,
     }
   },
   methods: {

@@ -8,6 +8,7 @@ import {
   isString,
   isNumber,
   isBoolean,
+  isPromise,
 } from './type'
 
 export {
@@ -18,6 +19,7 @@ export {
   isString,
   isNumber,
   isBoolean,
+  isPromise,
   oneOf,
   isEmpty,
   addScript,

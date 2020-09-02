@@ -3,26 +3,27 @@
     <div class="template-item-left">
       <div class="tempalte-instance">
         <sx-button @click="display0 = true" class="template-instance-item"
-          >应用Slot
+          >应用插槽
         </sx-button>
       </div>
       <sx-modal v-model="display0">
         <div slot="close">
-          Slot Icon
+          Slot:Icon
         </div>
         <div slot="header">
-          Slot Header
+          Slot:Header
         </div>
-        content
+        <div>Slot:default</div>
         <div slot="footer">
-          Slot Footer
+          Slot:Footer
         </div>
       </sx-modal>
       <div class="template-item-info">
-        <span class="template-info-title">Slot用法</span>
-        <span class="template-info-content">三Slot：close、header、footer</span>
-        <br />
-        <span class="template-info-content">设置子元素slot属性</span>
+        <span class="template-info-title">插槽用法</span>
+        <span class="template-info-content"
+          >Modal 包含 header close default(默认) footer 四个插槽
+          (用于自定义内容插入).</span
+        >
       </div>
     </div>
     <div class="template-item-right">
@@ -36,30 +37,20 @@ export default {
   data() {
     return {
       display0: false,
-      json: ` <sx-modal v-model="display0">
-        <div slot="close">
-          Slot Icon
-        </div>
-        <div slot="header">
-          Slot Header
-        </div>
-        content
-        <div slot="footer">
-          Slot Footer
-        </div>
-      </sx-modal>`,
+      json: `
+<sx-modal v-model="display0">
+  <div slot="close">
+    Slot:Icon
+  </div>
+  <div slot="header">
+    Slot:Header
+  </div>
+  <div>Slot:default</div>
+  <div slot="footer">
+    Slot:Footer
+  </div>
+</sx-modal>`,
     }
-  },
-  methods: {
-    ok() {
-      this.$SxMessage.success('ok')
-    },
-    cancel() {
-      this.$SxMessage.success('cancel')
-    },
-    error() {
-      this.$SxMessage.success('error')
-    },
   },
 }
 </script>

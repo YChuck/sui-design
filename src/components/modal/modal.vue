@@ -1,40 +1,52 @@
 <template>
-  <section>
-    <div :class="`${prefixCls}-mask`" v-show="visible" @click="mask"></div>
-    <div :class="`${prefixCls}`" v-show="visible">
-      <div :class="`${prefixCls}-content`">
+  <div :class="`${prefixCls}`">
+    <div
+      :class="`${prefixCls}-mask`"
+      v-show="visible"
+      @click="onMaskClick"
+    ></div>
+    <div :class="`${prefixCls}-content`" v-show="visible">
+      <div :class="`${prefixCls}-header`">
+        <slot name="header">
+          <div :class="`${prefixCls}-header-inner`">{{ title }}</div>
+        </slot>
         <a :class="`${prefixCls}-close`" v-if="hasIcon" @click="close">
           <slot name="close">
-            <Icon size="normal" type="icon-close"></Icon>
+            <Icon
+              :class="`${prefixCls}-close-icon`"
+              type="icon-close"
+              color="#4A4A4A"
+            ></Icon>
           </slot>
         </a>
-        <div :class="`${prefixCls}-header`" v-if="showHead">
-          <slot name="header">
-            <div :class="`${prefixCls}-header-inner`">{{ title }}</div>
-          </slot>
-        </div>
-        <div :class="`${prefixCls}-body`">
-          <slot></slot>
-        </div>
-        <div :class="`${prefixCls}-footer`" v-if="hasFooter">
-          <slot name="footer">
-            <div :class="`${prefixCls}-footer-boot`">
-              <Button type="default" @click="ok">{{ okText }}</Button>
-              <Button type="cancel" @click="cancel">{{ cancelText }}</Button>
-            </div>
-            <Button type="error" @click="error" v-show="hasError">{{
-              errorText
-            }}</Button>
-          </slot>
-        </div>
+      </div>
+      <div :class="`${prefixCls}-body`">
+        <slot></slot>
+      </div>
+      <div :class="`${prefixCls}-footer`" v-if="hasFooter">
+        <slot name="footer">
+          <Button type="default" @click="ok" :disabled="okDis">{{
+            okText
+          }}</Button>
+          <Button type="cancel" @click="cancel" :disabled="cancelDis">{{
+            cancelText
+          }}</Button>
+          <Button
+            type="error"
+            @click="error"
+            :disabled="errorDis"
+            v-if="hasError"
+            >{{ errorText }}</Button
+          >
+        </slot>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-import Icon from '../icon/index'
-import Button from '../button/index'
+import Icon from '../icon'
+import Button from '../button'
 
 const prefixCls = 'sui-modal'
 
@@ -52,7 +64,7 @@ export default {
     },
     maskClosable: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     keyClosable: {
       type: Boolean,
@@ -73,6 +85,18 @@ export default {
       type: String,
       default: '删除',
     },
+    okDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    cancelDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    errorDisabled: {
+      type: Boolean,
+      default: false,
+    },
     hasError: {
       type: Boolean,
       default: false,
@@ -85,53 +109,54 @@ export default {
   data() {
     return {
       prefixCls: prefixCls,
-      showHead: true,
       visible: this.value,
+      okDis: this.okDisabled,
+      cancelDis: this.cancelDisabled,
+      errorDis: this.errorDisabled,
     }
-  },
-  methods: {
-    ok() {
-      this.visible = false
-      this.$emit('input', false)
-      this.$emit('on-ok')
-    },
-    cancel() {
-      this.visible = false
-      this.$emit('input', false)
-      this.$emit('on-cancel')
-    },
-    close() {
-      this.cancel()
-    },
-    error() {
-      this.visible = false
-      this.$emit('input', false)
-      this.$emit('on-error')
-    },
-    mask() {
-      this.maskClosable && this.close()
-    },
-    EscClose(e) {
-      this.visible && this.keyClosable && e.keyCode === 27 && this.close()
-    },
   },
   watch: {
     value(val) {
       this.visible = val
     },
-    // 无title时自动隐藏header
-    title(val) {
-      if (this.$slots.header === undefined) {
-        this.showHead = !!val
-      }
+    okDisabled(val) {
+      this.okDis = val
+    },
+    cancelDisabled(val) {
+      this.cancelDis = val
+    },
+    errorDisabled(val) {
+      this.errorDis = val
     },
   },
   mounted() {
-    this.showHead = this.$slots.header || this.title
-    document.addEventListener('keydown', this.EscClose)
+    document.addEventListener('keydown', this.onKeyDown)
   },
   beforeDestroy() {
-    document.removeEventListener('keydown', this.EscClose)
+    document.removeEventListener('keydown', this.onKeyDown)
+  },
+  methods: {
+    ok() {
+      this.$emit('input', false)
+      this.$emit('on-ok')
+    },
+    cancel() {
+      this.$emit('input', false)
+      this.$emit('on-cancel')
+    },
+    error() {
+      this.$emit('input', false)
+      this.$emit('on-error')
+    },
+    close() {
+      this.cancel()
+    },
+    onMaskClick() {
+      this.maskClosable && this.close()
+    },
+    onKeyDown(e) {
+      this.visible && this.keyClosable && e.keyCode === 27 && this.close()
+    },
   },
 }
 </script>
