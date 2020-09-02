@@ -47,6 +47,14 @@
               <td style="text-align:center;">String</td>
               <td style="text-align:center;">one</td>
             </tr>
+            <tr>
+              <td style="text-align:center;">showCustom</td>
+              <td style="text-align:center;">
+                是否显示自定义时间选择按钮(仅 button 可用)
+              </td>
+              <td style="text-align:center;">Boolean</td>
+              <td style="text-align:center;">false</td>
+            </tr>
           </tbody>
         </table>
       </figure>

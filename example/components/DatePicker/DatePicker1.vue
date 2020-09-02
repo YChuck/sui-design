@@ -11,6 +11,7 @@
           class="template-instance-item"
           model="button"
           level="fragment"
+          showCustom
         />
       </div>
       <div class="template-item-info">
@@ -23,7 +24,8 @@
             target="_blank"
           >
             Element-UI DatePicker</a
-          >
+          >.<br />
+          <b>showCustom</b> 属性判断是否显示自定义时间选择按钮 (选择时间范围)
         </span>
       </div>
     </div>
