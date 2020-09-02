@@ -41,7 +41,7 @@ export default {
     return {
       json: `
 <sx-date-picker model="button" level="global"/>
-<sx-date-picker model="button" level="fragment"/>`,
+<sx-date-picker model="button" level="fragment" showCustom/>`,
     }
   },
 }
