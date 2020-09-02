@@ -1,7 +1,7 @@
 <template>
   <div class="temp" id="temp1">
     <div class="content">
-      <h3>弹窗逻辑异步模块引入</h3>
+      <h3>弹窗逻辑插槽同步引入</h3>
       <div>id: <input type="number" v-model.number="id" /></div>
     </div>
     <code-section class="code" :content="json" json></code-section>

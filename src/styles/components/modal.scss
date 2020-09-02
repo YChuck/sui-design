@@ -7,7 +7,7 @@ $modal-prefix-cls: '#{$css-prefix}modal';
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: $modal-z-index - 1;
     background-color: $modal-mask-bg-color;
   }
 
@@ -16,7 +16,7 @@ $modal-prefix-cls: '#{$css-prefix}modal';
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: $modal-z-index;
     min-width: 440px;
     background-color: $modal-content-bg-color;
   }

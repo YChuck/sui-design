@@ -1,5 +1,5 @@
-$notification-prefix-cls: "#{$css-prefix}notification";
-$notice-prefix-cls: "#{$css-prefix}notice";
+$notification-prefix-cls: '#{$css-prefix}notification';
+$notice-prefix-cls: '#{$css-prefix}notice';
 
 .#{$notice-prefix-cls} {
   position: relative;
@@ -7,7 +7,7 @@ $notice-prefix-cls: "#{$css-prefix}notice";
   width: max-content;
   background: $white;
   border-radius: $notice-border-radius;
-  box-shadow: 2px 2px 12px 0 rgba(19,36,71,0.20);
+  box-shadow: 2px 2px 12px 0 rgba(19, 36, 71, 0.2);
   padding: $notice-default-padding;
   color: $default-font-color;
   margin-bottom: 10px;
@@ -52,14 +52,13 @@ $notice-prefix-cls: "#{$css-prefix}notice";
     right: $notice-close-position;
     top: $notice-close-position;
   }
-
 }
 
 .#{$notification-prefix-cls} {
   position: fixed;
   display: flex;
   flex-direction: column;
-  z-index: 999;
+  z-index: $notice-z-index;
   &-notice {
     align-items: flex-end;
   }
