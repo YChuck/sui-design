@@ -26,7 +26,8 @@ const isArray = value => toStr.call(value) === '[object Array]'
  * 安全判断数据是否为函数
  * @param {*} value
  */
-const isFunction = value => toStr.call(value) === '[object Function]'
+const isFunction = value =>
+  /\[object (Function|AsyncFunction)\]/.test(toStr.call(value))
 
 /**
  * 判断数据是否为字符串
@@ -46,4 +47,21 @@ const isNumber = value => typeof value == 'number'
  */
 const isBoolean = value => typeof value == 'boolean'
 
-export { type, isObject, isArray, isFunction, isString, isNumber, isBoolean }
+const isPromise = obj => {
+  return (
+    !!obj &&
+    (typeof obj === 'object' || typeof obj === 'function') &&
+    typeof obj.then === 'function'
+  )
+}
+
+export {
+  type,
+  isObject,
+  isArray,
+  isFunction,
+  isString,
+  isNumber,
+  isBoolean,
+  isPromise,
+}

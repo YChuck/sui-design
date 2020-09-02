@@ -11,6 +11,7 @@ import SxInput from './components/input'
 import SxSelect from './components/select'
 import SxHeader from './components/header'
 import SxPage from './components/page'
+import SxModal from './components/modal'
 import SxLoading from './components/loading'
 
 export const components = [
@@ -23,6 +24,7 @@ export const components = [
   SxSelect,
   SxHeader,
   SxPage,
+  SxModal,
 ]
 
 function install(_Vue) {
@@ -31,6 +33,7 @@ function install(_Vue) {
   })
   _Vue.prototype.$SxNotice = SxNotice
   _Vue.prototype.$SxMessage = SxMessage
+  _Vue.prototype.$SxModal = SxModal
   _Vue.prototype.$SxLoading = SxLoading
 }
 
@@ -52,5 +55,6 @@ export default {
   SxSelect,
   SxHeader,
   SxPage,
+  SxModal,
   SxLoading,
 }
