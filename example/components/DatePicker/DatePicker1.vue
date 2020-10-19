@@ -6,6 +6,7 @@
           class="template-instance-item"
           model="button"
           level="global"
+          :pickerOptions="pickers"
         />
         <sx-date-picker
           class="template-instance-item"
@@ -25,6 +26,9 @@
           >
             Element-UI DatePicker</a
           >.<br />
+          <b>pickerOptions</b> 属性自定义 Element UI 的 Picker Options 属性
+          (区别本属性为数组 0项为第一个按钮的配置,以此类推
+          仅作用于按钮选择器)<br />
           <b>showCustom</b> 属性判断是否显示自定义时间选择按钮 (选择时间范围)
         </span>
       </div>
@@ -40,8 +44,23 @@ export default {
   data() {
     return {
       json: `
-<sx-date-picker model="button" level="global"/>
-<sx-date-picker model="button" level="fragment" showCustom/>`,
+<sx-date-picker model="button" level="global" :pickerOptions="pickers"/>
+<sx-date-picker model="button" level="fragment" showCustom/>
+
+pickers: [
+  {
+    disabledDate: time => {
+      return time.getTime() > Date.now() - 86400000 * 2
+    },
+  },
+]`,
+      pickers: [
+        {
+          disabledDate: time => {
+            return time.getTime() > Date.now() - 86400000 * 2
+          },
+        },
+      ],
     }
   },
 }

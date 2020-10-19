@@ -290,9 +290,8 @@ export default {
       )
       return Array.isArray(pickerOptions)
         ? pickers.map((v, i) => {
-            v.options = {
-              ...v.options,
-              ...(pickerOptions[i] || {}),
+            if (pickerOptions[i]) {
+              v.options.pickerOptions = pickerOptions[i]
             }
             return v
           })
