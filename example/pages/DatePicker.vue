@@ -11,6 +11,7 @@
     <sx-header title="Api" level="secondary"></sx-header>
     <div class="api-view">
       <h5>DatePicker props:</h5>
+      <h5></h5>
       <figure>
         <table>
           <thead>
@@ -55,10 +56,20 @@
               <td style="text-align:center;">Boolean</td>
               <td style="text-align:center;">false</td>
             </tr>
+            <tr>
+              <td style="text-align:center;">pickerOptions</td>
+              <td style="text-align:center;">
+                自定义时间选择器的 Picker Options (仅按钮模式配置 基于 Element
+                UI)
+              </td>
+              <td style="text-align:center;">Array</td>
+              <td style="text-align:center;">false</td>
+            </tr>
           </tbody>
         </table>
       </figure>
       <h5>DatePicker events:</h5>
+
       <figure>
         <table>
           <thead>
