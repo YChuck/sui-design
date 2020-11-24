@@ -57,6 +57,10 @@ export default {
       type: String,
       default: 'one',
     },
+    // 默认选中值
+    defaultValue: {
+      type: [Date, Array],
+    },
     // UI展示级别
     level: {
       validator(v) {
@@ -303,7 +307,7 @@ export default {
    * 仅显示日周月则默认选中'日'按钮
    */
   mounted() {
-    let { showFragment, defaultSelect } = this
+    let { showFragment, defaultSelect, defaultValue } = this
     // 若仅显示日周月 但是默认选中不再其中 修改为date
     if (showFragment && !oneOf(defaultSelect, ['date', 'week', 'month']))
       defaultSelect = 'date'
@@ -312,9 +316,11 @@ export default {
     let btn = this.btns[btnIndex]
     if (oneOf(defaultSelect, ['date', 'week', 'month'])) {
       this.selectedIndex = btnIndex
-      this.modelDate[defaultSelect] = moment()
-        .subtract(defaultSelect === 'date' ? 0 : 1, defaultSelect)
-        .format()
+      this.modelDate[defaultSelect] = defaultValue
+        ? defaultValue
+        : moment()
+            .subtract(defaultSelect === 'date' ? 0 : 1, defaultSelect)
+            .format()
       btn.options.change(this.modelDate[defaultSelect])
     } else {
       btn.click(btn)
