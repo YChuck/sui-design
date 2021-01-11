@@ -1,5 +1,5 @@
-# SUI-DESIGN 使用手册 [demo](http://119.45.142.60:8080/sui-design/)(服务器较差 加载比较久)
-
+# SUI-DESIGN 使用手册 [demo](http://119.45.142.60:8080/sui-design/)
+`(服务器较差 加载比较久)`
 ### 快速上手
 
 #### 1. NPM 安装
