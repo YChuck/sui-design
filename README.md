@@ -2,7 +2,7 @@
 `(服务器较差 加载比较久)`
 ### 快速上手
 
-#### 1. NPM 安装
+#### 1. [NPM](https://www.npmjs.com/package/sui-design) 安装 
 
 ```shell
 $ npm install sui-design --save
